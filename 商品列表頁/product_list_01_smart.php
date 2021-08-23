@@ -289,9 +289,9 @@
                     <a href="#">品牌專區</a>
                 </div>
 
-                <!-- 商品分類_level_0 -->
+                <!-- 智慧家電商品分類_level_0 -->
                 <div class="hd_title_link tog_lv_0">
-                    <a href="#">商品分類</a>
+                    <a href="#">智慧家電</a>
                 </div>
 
                 <!-- 商品分類細項_level_1 ---------------->
@@ -464,6 +464,43 @@
 
                 </div>
 
+                <!-- AI機器人商品分類_level_0 -->
+                <div class="hd_title_link  tog_lv_0_ai">
+                    <a href="#">AI機器人</a>
+                </div>
+
+                <!-- 商品分類細項_level_1 ---------------->
+                <div class="tog_lv_1_ai d-none" style="
+                    margin: 5px 0 0px 30px;
+                    display: flex;
+                            flex-direction: column;text-align: left;letter-spacing: 0.3rem;font-size: 1rem;
+                            font-weight: 400;
+                            color: #5a5a5a; ">
+
+                    <?php
+                    $sql = "SELECT `cate_id`, `cate_name` FROM `categories` WHERE `parent_id` = 1";
+                    $arr = $pdo->query($sql)->fetchAll();
+                    foreach ($arr as $obj) {
+                    ?>
+
+                        <div class="tog_lv_2_ai lv2-1" style="margin-bottom: 20px;">
+
+                            <a href=" product_list_01_smart.php?cate_id=<?= $obj['cate_id'] ?>" style="color: #5a5a5a; text-decoration: none;">
+                                <?= $obj['cate_name'] ?>
+                            </a>
+
+                        </div>
+
+                        <!-- <div class="tog_lv_4">
+                                    <a href="#">烹飪機器人</a>
+                                </div> -->
+
+                    <?php
+                    }
+                    ?>
+
+                </div>
+
                 <!-- 智慧專欄 -->
                 <div class="hd_title_link">
                     <a href="#">智慧專欄</a>
@@ -594,6 +631,8 @@
 
                 <!--right-part-->
                 <div class="r_part col-10">
+
+                    <!-- 上排分頁籤 -->
                     <div class="smbtn col-12">
                         <div class="card text-center">
 
@@ -684,7 +723,7 @@
                                                 <div class="firstline">
                                                     <h4 class="card-title">Panasonic</h4>
 
-                                                    <button class="compare" data-prod-id="<?= $obj['prod_id'] ?>" data-prod-name="<?= $obj['prod_name'] ?>" data-prod-thumbnail="<?= $obj['prod_thumbnail'] ?>" data-prod-price="<?= $obj['prod_price'] ?>"><img src="./img/icon_compare-list.svg" alt="">比較</button>
+                                                    <button class="compare" data-prod-id="<?= $obj['prod_id'] ?>" alt="">比較</button>
 
                                                     <button class="saved" data-prod-id="<?= $obj['prod_id'] ?>" data-prod-name="<?= $obj['prod_name'] ?>" data-prod-thumbnail="<?= $obj['prod_thumbnail'] ?>" data-prod-price="<?= $obj['prod_price'] ?>"><img src="./img/icon_saved.svg" alt="">喜愛清單</button>
                                                 </div>
@@ -761,6 +800,8 @@
 
 
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -768,12 +809,16 @@
 
         <!-- 手機內容開始 -->
         <div class="moblie_part">
+
+            <!--兩大分頁-->
             <div class="lgbtn">
                 <div class="btn-group btn-group-lg col-12" style="padding: 0;">
                     <a href="./product_list_01_smart.php" class="btn btn-light active" aria-current="page">智慧家電</a>
                     <a href="./product_list_02_ai.php" class="btn btn-light">Ai 機器人</a>
                 </div>
             </div>
+
+            <!-- title : 熱門商品 -->
             <div class="lgtitle">
                 <h4>熱門商品</h4>
             </div>
@@ -797,13 +842,16 @@
                       </nav> -->
             </div>
 
-            <!-- 篩選 -->
+
             <div class="moblie_filter">
+
+                <!-- 篩選+排序 -->
                 <div class="head">
 
                     <!-- 篩選列表 ----------------------------->
                     <button class="m_button">篩選</button>
 
+                    <!-- 排序列表 -->
                     <div class="filter">
                         <div class="dropdown">
                             <button class="btndropdown-toggle dropdown_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -820,91 +868,87 @@
 
                 </div>
 
-                <!-- 分類列表 ---------------------------->
-                <div class="s_select">
-                    <h6 class="">分類</h6>
-                    <div>
-                        <label for="c1"> <input type="checkbox" name="product_name">品牌名字(A→Z)</label>
-                    </div>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name"> 家電類別(A→Z)</label>
-                    </div>
-                    <div>
-                        <label for="c1"> <input type="checkbox" name="product_name">優惠活動(新→舊)</label>
-                    </div>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name">優惠活動(舊→新)</label>
-                    </div>
-                    <h6 class="">排序</h6>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name">金額(大→小)</label>
-                    </div>
-                    <div>
-                        <label for="c1"> <input type="checkbox" name="product_name">金額(小→大)</label>
-                    </div>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name">上架時間(新→舊)</label>
-                    </div>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name">上架時間(舊→新)</label>
-                    </div>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name">加入時間(新→舊)</label>
-                    </div>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name">加入時間(舊→新)</label>
-                    </div>
-                    <h6 class="">篩選</h6>
-                    <div>
-                        <label for="c1"><input type="checkbox" name="product_name" checked="true">只顯示折扣商品</label>
-                    </div>
-                    <div>
-                        <label for="c1">
-                            <input type="checkbox" name="product_name">
-                            可快速到貨
-                        </label>
-                    </div>
-                </div>
-
-
+                <!-- 商品展示連結-->
                 <div class="m_body">
-                    <div class="m_card">
+
+                    <?php if (isset($_GET['sub_cate_id'])) { ?>
+
+                        <?php
+                        $sql = "SELECT * FROM `products` 
+                                        WHERE `cate_id` = {$_GET['sub_cate_id']} ";
+
+                        $stmt = $pdo->query($sql);
+                        if ($stmt->rowCount() > 0) {
+                            /**
+                             * 如果查詢結果很多筆
+                             * $stmt->fetchAll()
+                             * 
+                             * 如果查詢只有一筆
+                             * $stmt->fetch()
+                             */
+                            $arr = $stmt->fetchAll();
+                            foreach ($arr as $obj) {
+                        ?>
+
+                                <div class="m_card">
 
 
+                                    <div class=" m_card_head">
 
-                        <div class=" m_card_head">
+                                        <!-- php : 商品名稱 -->
+                                        <h6 class="mb-0"><?= $obj['prod_name'] ?></h6>
 
-                            <h6 class="mb-0">Toyota</h6>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="83.3" height="20" viewBox=" 0 0 149.945 36">
-                                <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
-                                    <g id="Group_275" data-name="Group 275">
-                                        <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
-                                        <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
-                                            <tspan x="0" y="0">88折</tspan>
-                                        </text>
-                                    </g>
-                                </g>
-                            </svg>
+                                        <!-- 優惠標籤 -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="83.3" height="20" viewBox=" 0 0 149.945 36">
+                                            <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
+                                                <g id="Group_275" data-name="Group 275">
+                                                    <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                    <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
+                                                        <tspan x="0" y="0">88折</tspan>
+                                                    </text>
+                                                </g>
+                                            </g>
+                                        </svg>
 
-                        </div>
-                        <div class="card_center">
-                            <img src="./img/1.jpeg" alt="">
-                            <div class="r_rpart">
-                                <a class="m_button2 mr-2"><img src="./img/icon_saved.svg" alt="">
-                                    收藏</a>
+                                    </div>
 
-                                <a class="m_button2 mr-2"><img src="./img/icon_compare-list.svg" alt="">
-                                    比較</a>
+                                    <div class="card_center">
+
+                                        <!-- php : 商品圖片 -->
+                                        <img src="./img_prod_thumbnail/<?= $obj['prod_thumbnail'] ?>" alt="">
 
 
-                                <div class="m_rpart">
-                                    <div class="m_price mb-3">$$$$PHP</div>
-                                    <button class="m_button1"><img src="./img/icon_shopping-cart.svg" alt="">
-                                        加入購物車</button>
+                                        <div class="r_rpart">
+
+                                            <!-- php : 加入喜好清單 -->
+                                            <div class="m_button2 mr-2" data-prod-id="<?= $obj['prod_id'] ?>" alt="">
+                                                收藏</div>
+
+                                            <!-- php : 加入比較列表 -->
+                                            <div class="m_button2 mr-2" data-prod-id="<?= $obj['prod_id'] ?>" data-prod-name="<?= $obj['prod_name'] ?>" data-prod-thumbnail="<?= $obj['prod_thumbnail'] ?>" data-prod-price="<?= $obj['prod_price'] ?>"><img src="./img/icon_compare-list.svg" alt="">
+                                                比較</div>
+
+
+                                            <div class="m_rpart">
+
+                                                <!-- php : price -->
+                                                <div class="m_price mb-3">$<?= $obj['prod_price'] ?></div>
+
+                                                <!-- php : 加入購物車 -->
+                                                <button class="m_button1" data-prod-id="<?= $obj['prod_id'] ?>" data-prod-name="<?= $obj['prod_name'] ?>" data-prod-thumbnail="<?= $obj['prod_thumbnail'] ?>" data-prod-price="<?= $obj['prod_price'] ?>"><img src="./img/icon_shopping-cart.svg" alt="">
+                                                    加入購物車</button>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
+
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
                 </div>
 
             </div>
@@ -914,10 +958,9 @@
         </div>
 
 
-
-
         <!-- 在這裡結束網頁撰寫 ----------------------->
     </div>
+
 
 
 
@@ -1068,7 +1111,7 @@
             $('.hd_toggler').addClass('d-none');
         });
 
-        // tog_lv_0 商品分類
+        // tog_lv_0 商品分類 : 智慧家電
         $('.tog_lv_0').click(function() {
             console.log('商品分類 click');
             if ($('.tog_lv_1').hasClass('d-none')) {
@@ -1080,6 +1123,21 @@
             // 清除項目點選效果
             $('.lv3-1,.lv3-2,.lv3-3,.lv3-4,.lv3-5').addClass('d-none');
             $('.lv2-1>p, .lv2-2>p, .lv2-3>p, .lv2-4>p, .lv2-5>p').css('color', '#5a5a5a');
+            // $('.tog_lv_0').css('color', 'white').css('background-color', 'wheat');
+        });
+
+        // tog_lv_0 商品分類 : AI機器人
+        $('.tog_lv_0_ai').click(function() {
+            console.log('商品分類 click');
+            if ($('.tog_lv_1_ai').hasClass('d-none')) {
+                $('.tog_lv_1_ai').removeClass('d-none');
+            } else {
+                $('.tog_lv_1_ai').addClass('d-none');
+            }
+
+            // 清除項目點選效果
+            // $('.lv3-1,.lv3-2,.lv3-3,.lv3-4,.lv3-5').addClass('d-none');
+            // $('.lv2-1>p, .lv2-2>p, .lv2-3>p, .lv2-4>p, .lv2-5>p').css('color', '#5a5a5a');
             // $('.tog_lv_0').css('color', 'white').css('background-color', 'wheat');
         });
 

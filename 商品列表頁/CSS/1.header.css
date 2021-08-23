@@ -329,7 +329,27 @@ header {
     color: #5a5a5a;
   }
 
+  .tog_lv_0_ai {
+    /* background-color: wheat; */
+    color: #5a5a5a;
+  }
+
   .tog_lv_1 {
+    margin: 5px 0 0px 30px;
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+    letter-spacing: 0.3rem;
+
+    font-size: 1rem;
+    font-weight: 400;
+    color: #5a5a5a;
+
+    /* background-color: rgb(200, 247, 200); */
+  }
+
+  .tog_lv_1_ai {
     margin: 5px 0 0px 30px;
     display: flex;
     flex-direction: column;
@@ -346,6 +366,14 @@ header {
 
   .tog_lv_2 {
     margin-bottom: 10px;
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    /* transition: 5s; */
+    /* background-color: rgb(241, 212, 212); */
+  }
+
+  .tog_lv_2_ai {
+    margin-bottom: 20px;
     /* visibility: hidden; */
     /* opacity: 0; */
     /* transition: 5s; */

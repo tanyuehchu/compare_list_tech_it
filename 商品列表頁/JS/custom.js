@@ -1,5 +1,6 @@
 //加入商品至購物車/喜好清單/比較列表
 
+//加入商品至購物車
 $('button.joincart').click(function(event){
     //取得 button 的 jQuery 物件
     let btn = $(this);
@@ -20,18 +21,50 @@ $('button.joincart').click(function(event){
         console.log(obj);
     }, 'json');
 
+    
+});
+
+//加入喜好清單
+$('button.saved').click(function(event){
+    //避免元素的預設事件被觸發
+    event.preventDefault();
+
+    //取得 button 的 jQuery 物件
+    let btn = $(this);
+
+    //送出 post 請求，加入購物車
+    let objProduct = {
+        prod_id: btn.attr('data-prod-id'),
+    };
     $.post("follow.php", objProduct, function(obj){
         if(obj['success']){
             //成功訊息
-            alert('加入喜好清單成功');
+            alert('商品追蹤成功');
+        } else {
+            alert(`${obj['info']}`);
         }
         console.log(obj);
     }, 'json');
+});
+
+
+//加入比較列表
+$('button.compare').click(function(event){
+    //取得 button 的 jQuery 物件
+    let btn = $(this);
+
+    //送出 post 請求，加入購物車
+    let objProduct = {
+        prod_id: btn.attr('data-prod-id'),
+        prod_name: btn.attr('data-prod-name'),
+        prod_thumbnail: btn.attr('data-prod-thumbnail'),
+        prod_price: btn.attr('data-prod-price'),
+    };
 
     $.post("compare.php", objProduct, function(obj){
         if(obj['success']){
             //成功訊息
-            alert('加入比較清單成功');
+            alert('加入比較列表成功');
         }
         console.log(obj);
     }, 'json');
