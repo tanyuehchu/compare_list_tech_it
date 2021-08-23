@@ -9,29 +9,20 @@
 
 
     <!-- bootstrap 4 link -------------------------------->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 
     <!-- jquery link -------------------------------------->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 
     <!-- google font link ------------------------------->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
 
     <!-- CSS link ---------------------------->
@@ -339,8 +330,8 @@
         <div class="web_part">
             <div class="lgbtn">
                 <div class="btn-group btn-group-lg col-12" style="padding: 0;">
-                    <a href="./product_list.html" class="btn btn-light " aria-current="page">智慧家電</a>
-                    <a href="./product_list_ai.html" class="btn btn-light active">Ai 機器人</a>
+                    <a href="./product_list_01_smart.php" class="btn btn-light " aria-current="page">智慧家電</a>
+                    <a href="./product_list_02_ai.php" class="btn btn-light active">Ai 機器人</a>
                 </div>
             </div>
 
@@ -348,6 +339,7 @@
                 <h4>熱門商品</h4>
             </div>
 
+            <!-- 路徑 -->
             <div class="pathnfilter">
                 <!--path 需套php？-->
                 <div class="path">
@@ -366,11 +358,12 @@
                     </ol>
                   </nav> -->
                 </div>
+
+                <!-- 篩選box at right -->
                 <!--filter 需套php？-->
                 <div class="filter">
                     <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             最新上架
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -380,6 +373,9 @@
                         </div>
                     </div>
                 </div>
+
+
+
             </div>
 
             <hr>
@@ -494,13 +490,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -527,13 +518,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -560,13 +546,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -593,13 +574,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -626,13 +602,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -659,13 +630,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -692,13 +658,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -725,13 +686,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -759,13 +715,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -792,13 +743,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -825,13 +771,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -858,13 +799,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -891,13 +827,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -924,13 +855,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -957,13 +883,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -990,13 +911,8 @@
                                     viewBox=" 0 0 149.945 36">
                                         <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                             <g id="Group_275" data-name="Group 275">
-                                                <path id="Subtraction_1" data-name="Subtraction 1"
-                                                    d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                                    transform="translate(6686.442 1077)" fill="#8b82b2"
-                                                    opacity="0.561" />
-                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                                    font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                                    letter-spacing="0.2em">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                                     <tspan x="0" y="0">88折</tspan>
                                                 </text>
                                             </g>
@@ -1057,8 +973,7 @@
 
                     <div class="filter">
                         <div class="dropdown">
-                            <button class="btndropdown-toggle dropdown_btn" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btndropdown-toggle dropdown_btn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 最新上架
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -1123,12 +1038,8 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="83.3" height="20" viewBox=" 0 0 149.945 36">
                                 <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                     <g id="Group_275" data-name="Group 275">
-                                        <path id="Subtraction_1" data-name="Subtraction 1"
-                                            d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z"
-                                            transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
-                                        <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff"
-                                            font-size="16" font-family="PingFangHK-Regular, PingFang HK"
-                                            letter-spacing="0.2em">
+                                        <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                        <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
                                             <tspan x="0" y="0">88折</tspan>
                                         </text>
                                     </g>
@@ -1228,10 +1139,11 @@
 
     <!-- JQ ----------------------------------->
     <script>
-
         // btn_toTop ----------------------------------
-        $(".btn_toTop").click(function () {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
+        $(".btn_toTop").click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, "slow");
             return false;
         });
 
@@ -1239,28 +1151,28 @@
 
         // PC : click & hover ----------------------------
         // mouseenter ------------------------------
-        $('.t1').mouseenter(function () {
+        $('.t1').mouseenter(function() {
             console.log('navbar mouseenter');
             // pc
             $('.t1').css('border-bottom', '1px solid rgb(11, 141, 173)');
             $('.t1>a').css('color', 'rgb(11, 141, 173)')
         });
 
-        $('.t2').mouseenter(function () {
+        $('.t2').mouseenter(function() {
             console.log('navbar mouseenter');
             // pc
             $('.t2').css('border-bottom', '1px solid rgb(11, 141, 173)');
             $('.t2>a').css('color', 'rgb(11, 141, 173)')
         });
 
-        $('.t3').mouseenter(function () {
+        $('.t3').mouseenter(function() {
             console.log('navbar mouseenter');
             // pc
             $('.t3').css('border-bottom', '1px solid rgb(11, 141, 173)');
             $('.t3>a').css('color', 'rgb(11, 141, 173)')
         });
 
-        $('.t4').mouseenter(function () {
+        $('.t4').mouseenter(function() {
             console.log('navbar mouseenter');
             // pc
             $('.t4').css('border-bottom', '1px solid rgb(11, 141, 173)');
@@ -1269,28 +1181,28 @@
 
 
         // mouseleave --------------------------------
-        $('.t1').mouseleave(function () {
+        $('.t1').mouseleave(function() {
             console.log('navbar mouseleave');
             // pc
             $('.t1').css('border-bottom', '1px solid #707070');
             $('.t1>a').css('color', 'black')
         });
 
-        $('.t2').mouseleave(function () {
+        $('.t2').mouseleave(function() {
             console.log('navbar mouseleave');
             // pc
             $('.t2').css('border-bottom', '1px solid #707070');
             $('.t2>a').css('color', 'black')
         });
 
-        $('.t3').mouseleave(function () {
+        $('.t3').mouseleave(function() {
             console.log('navbar mouseleave');
             // pc
             $('.t3').css('border-bottom', '1px solid #707070');
             $('.t3>a').css('color', 'black')
         });
 
-        $('.t4').mouseleave(function () {
+        $('.t4').mouseleave(function() {
             console.log('navbar mouseleave');
             // pc
             $('.t4').css('border-bottom', '1px solid #707070');
@@ -1301,19 +1213,19 @@
         // toggler 下拉選單 ---------------------------------
 
         // open/close toggler
-        $('.btn_toggler').click(function () {
+        $('.btn_toggler').click(function() {
             console.log('btn_toggler click');
             $('.hd_toggler').removeClass('d-none');
         });
 
-        $('.toggler_box_right').click(function () {
+        $('.toggler_box_right').click(function() {
             console.log('.toggler_box_right click');
             $('.hd_toggler').addClass('d-none');
         });
 
         // tog_lv_0
 
-        $('.tog_lv_0').click(function () {
+        $('.tog_lv_0').click(function() {
             console.log('商品分類 click');
             $('.tog_lv_1').removeClass('d-none');
             // $('.tog_lv_0').css('color', 'white').css('background-color', 'wheat');
@@ -1321,65 +1233,65 @@
 
         // tog_lv_2
         // tog_lv2-1 廚房家電
-        $('.lv2-1').click(function () {
+        $('.lv2-1').click(function() {
             console.log('廚房家電 click');
             $('.lv3-1').removeClass('d-none');
             $('.lv2-1>p').css('color', 'rgb(11, 141, 173)');
         });
 
-        $('.lv2-2, .lv2-3, .lv2-4, .lv2-5').click(function () {
+        $('.lv2-2, .lv2-3, .lv2-4, .lv2-5').click(function() {
             console.log('關閉廚房家電 click');
             $('.lv3-1').addClass('d-none');
             $('.lv2-1>p').css('color', '#5a5a5a');
         });
 
         // tog_lv2-2 居家安全
-        $('.lv2-2').click(function () {
+        $('.lv2-2').click(function() {
             console.log('居家安全 click');
             $('.lv3-2').removeClass('d-none');
             $('.lv2-2>p').css('color', 'rgb(11, 141, 173)');
         });
 
-        $('.lv2-1, .lv2-3, .lv2-4, .lv2-5').click(function () {
+        $('.lv2-1, .lv2-3, .lv2-4, .lv2-5').click(function() {
             console.log('關閉居家安全 click');
             $('.lv3-2').addClass('d-none');
             $('.lv2-2>p').css('color', '#5a5a5a');
         });
 
         // tog_lv2-3 居家清潔
-        $('.lv2-3').click(function () {
+        $('.lv2-3').click(function() {
             console.log('居家清潔 click');
             $('.lv3-3').removeClass('d-none');
             $('.lv2-3>p').css('color', 'rgb(11, 141, 173)');
         });
 
-        $('.lv2-1, .lv2-2, .lv2-4, .lv2-5').click(function () {
+        $('.lv2-1, .lv2-2, .lv2-4, .lv2-5').click(function() {
             console.log('關閉居家清潔 click');
             $('.lv3-3').addClass('d-none');
             $('.lv2-3>p').css('color', '#5a5a5a');
         });
 
         // tog_lv2-4 娛樂與教育
-        $('.lv2-4').click(function () {
+        $('.lv2-4').click(function() {
             console.log('娛樂與教育 click');
             $('.lv3-4').removeClass('d-none');
             $('.lv2-4>p').css('color', 'rgb(11, 141, 173)');
         });
 
-        $('.lv2-1, .lv2-2, .lv2-3, .lv2-5').click(function () {
+        $('.lv2-1, .lv2-2, .lv2-3, .lv2-5').click(function() {
             console.log('關閉娛樂與教育 click');
             $('.lv3-4').addClass('d-none');
             $('.lv2-4>p').css('color', '#5a5a5a');
         });
 
         // tog_lv2-5 智能周邊
-        $('.lv2-5').click(function () {
+        $('.lv2-5').click(function() {
             console.log('智能周邊 click');
             $('.lv3-5').removeClass('d-none');
             $('.lv2-5>p').css('color', 'rgb(11, 141, 173)');
         });
 
-        $('.lv2-1, .lv2-2, .lv2-3, .lv2-4').click(function () {
+        $('.lv2-1, .lv2-2, .lv2-3, .lv2-4').click(function() {
             console.log('智能周邊 click');
             $('.lv3-5').addClass('d-none');
             $('.lv2-5>p').css('color', '#5a5a5a');
@@ -1387,7 +1299,7 @@
 
 
         //此頁
-        $("input,checkbox").click(function () {
+        $("input,checkbox").click(function() {
             if ($(this).prop("checked")) {
                 $(this).css("background-color", "#FA8873")
             } else {
@@ -1396,7 +1308,6 @@
             }
 
         })
-
     </script>
 
 </body>
