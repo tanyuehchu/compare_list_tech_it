@@ -1,6 +1,9 @@
 <!-- php link -------------------------------------------->
 <?php require_once 'db.inc.php' ?>
+<?php session_start() ?>
 
+
+<!-- html ----------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -337,7 +340,7 @@
                 </div>
             </div>
 
-
+            <!-- title : 熱門商品 -->
             <div class="lgtitle">
                 <h4>熱門商品</h4>
             </div>
@@ -430,11 +433,13 @@
                 </div>
 
 
-                <!-- 上排分頁籤 -->
+
                 <!--right-part-->
                 <div class="r_part col-10">
                     <div class="smbtn col-12">
                         <div class="card text-center">
+
+                            <!--php : 上排分頁籤 ------------------------>
                             <div class="card-header">
 
                                 <ul class="nav nav-tabs card-header-tabs">
@@ -460,8 +465,7 @@
                             </div>
 
 
-
-                            <!--php套底下類別?-->
+                            <!--php : 上排分頁籤底下類別 ----------------------->
                             <div class="card-body">
 
                                 <?php if (isset($_GET['cate_id'])) { ?>
@@ -487,25 +491,21 @@
                             </div>
 
 
-
-
                         </div>
                     </div>
 
 
                     <!-- 商品展示連結-->
                     <div class="maincards col-12">
-                        <div class="row justify-content-between">
 
-                            <!-- 商品card ------------>
+                        <?php if (isset($_GET['sub_cate_id'])) { ?>
 
-                            <?php if (isset($_GET['sub_cate_id'])) { ?>
+                            <div class="row justify-content-between">
 
                                 <?php
-                                $sql = "SELECT `id`, `prod_name`, `prod_thumbnail`, `prod_price` 
-                                            FROM `products_ver2` 
-                                            WHERE `cate_id` = {$_GET['sub_cate_id']} 
-                                            LIMIT {$offset}, {$numPerPage}";
+                                $sql = "SELECT * FROM `products` 
+                                        WHERE `cate_id` = {$_GET['sub_cate_id']} ";
+
                                 $stmt = $pdo->query($sql);
                                 if ($stmt->rowCount() > 0) {
                                     /**
@@ -519,30 +519,25 @@
                                     foreach ($arr as $obj) {
                                 ?>
 
+                                        <!-- 商品card ------------>
                                         <div class="col-lg-3 col-sm-12">
                                             <div class="card">
+
                                                 <div class="firstline">
-
-
-                                                    <!-- 商品品牌 -->
                                                     <h4 class="card-title">Panasonic</h4>
 
-                                                    <!-- 加入比較清單 -->
-                                                    <a href="product_list_01_smart.php?cate_id=<?= $_GET['cate_id'] ?>&sub_cate_id=<?= $_GET['sub_cate_id'] ?>&prod_id=<?= $obj['prod_id'] ?>" class="compare"><img src="./img/icon_compare-list.svg" alt="">比較</a>
+                                                    <a href="#" class="compare"><img src="./img/icon_compare-list.svg" alt="">比較</a>
 
-                                                    <!-- 加入購物車 -->
-                                                    <a href="#" class="saved"><img src="./img/icon_saved.svg" alt="">加入購物車</a>
-
+                                                    <a href="#" class="saved"><img src="./img/icon_saved.svg" alt="">喜愛清單</a>
                                                 </div>
 
-                                                <!-- 商品名稱 -->
-                                                <h5 class="card-title">電氣壓力鍋 SR-PG501 </h5>
+                                                <!-- php : 商品名稱 -->
+                                                <h5 class="card-title"><?= $obj['prod_name'] ?></h5>
 
+                                                <!-- php : 商品圖片 -->
+                                                <img src="./img_prod_thumbnail/<?= $obj['prod_thumbnail'] ?>" class="card-img-top" alt="...">
 
-                                                <!-- 商品照片 -->
-                                                <img src="./img/1.jpeg" class="card-img-top" alt="...">
-
-                                                <!-- 免運優惠 -->
+                                                <!-- 優惠標示 -->
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="149.945" height="36" viewBox=" 0 0 149.945 36">
                                                     <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
                                                         <g id="Group_275" data-name="Group 275">
@@ -554,11 +549,10 @@
                                                     </g>
                                                 </svg>
 
-
                                                 <div class="card-body">
 
-                                                    <!-- price -->
-                                                    <a href="#" class="price">$18,888</a>
+                                                    <!-- php : 價格 -->
+                                                    <p class="price">$<?= $obj['prod_price'] ?></p>
 
                                                     <!-- 加入購物車 -->
                                                     <a href="#" class="joincart">加入購物車</a>
@@ -574,8 +568,8 @@
                             }
                             ?>
 
-                            <!-- 商品card ------------>
-                            <div class="col-lg-3 col-sm-12">
+                            <!-- 商品card -->
+                            <!-- <div class="col-lg-3 col-sm-12">
                                 <div class="card">
                                     <div class="firstline">
                                         <h4 class="card-title">Panasonic</h4>
@@ -601,9 +595,9 @@
                                         <a href="#" class="joincart">加入購物車</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="col-lg-3 col-sm-12">
+                            <!-- <div class="col-lg-3 col-sm-12">
                                 <div class="card">
                                     <div class="firstline">
                                         <h4 class="card-title">Panasonic</h4>
@@ -629,9 +623,9 @@
                                         <a href="#" class="joincart">加入購物車</a>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class="col-lg-3 col-sm-12">
+                            <!-- <div class="col-lg-3 col-sm-12">
                                 <div class="card">
                                     <div class="firstline">
                                         <h4 class="card-title">Panasonic</h4>
@@ -657,11 +651,41 @@
                                         <a href="#" class="joincart">加入購物車</a>
                                     </div>
                                 </div>
+                            </div> -->
+
+                            <!-- <div class="col-lg-3 col-sm-12">
+                                <div class="card">
+                                    <div class="firstline">
+                                        <h4 class="card-title">Panasonic</h4>
+                                        <a href="#" class="compare"><img src="
+                                                ./img/icon_compare-list.svg" alt="">比較</a>
+                                        <a href="#" class="saved"><img src="./img/icon_saved.svg" alt="">加入購物車</a>
+                                    </div>
+                                    <h5 class="card-title">電氣壓力鍋 SR-PG501 </h5>
+                                    <img src="./img/1.jpeg" class="card-img-top" alt="...">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="149.945" height="36""
+                                        viewBox=" 0 0 149.945 36">
+                                        <g id="Group_650" data-name="Group 650" transform="translate(-364.442 -1080)">
+                                            <g id="Group_275" data-name="Group 275">
+                                                <path id="Subtraction_1" data-name="Subtraction 1" d="M-6172.056,39H-6322V3h149.943L-6190.4,21l18.338,18Z" transform="translate(6686.442 1077)" fill="#8b82b2" opacity="0.561" />
+                                                <text id="免運優惠" transform="translate(377.442 1103.857)" fill="#fff" font-size="16" font-family="PingFangHK-Regular, PingFang HK" letter-spacing="0.2em">
+                                                    <tspan x="0" y="0">88折</tspan>
+                                                </text>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <div class="card-body">
+                                        <a href="#" class="price">$18,888</a>
+                                        <a href="#" class="joincart">加入購物車</a>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+
                             </div>
 
 
-
-                        </div>
                     </div>
                 </div>
             </div>
@@ -806,10 +830,16 @@
 
 
         </div>
+
+
+
+
         <!-- 在這裡結束網頁撰寫 ----------------------->
-
-
     </div>
+
+
+
+
     <!-- FT : Footer ----------------------------------------------->
 
     <footer class="footer d-flex">
