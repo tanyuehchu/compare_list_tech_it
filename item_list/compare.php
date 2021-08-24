@@ -2,12 +2,12 @@
 <?php session_start() ?>
 <?php
 //如果這個階段沒有購物車，就將頁面轉到商品確認頁
-if (isset($_SESSION['data_compare'])) {
-    foreach ($_SESSION['data_compare'] as $key => $obj);
-} else {
-    echo "比較清單沒有任何商品喔!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
-    exit();
-}
+// if (isset($_SESSION['data_compare'])) {
+//     foreach ($_SESSION['data_compare'] as $key => $obj);
+// } else {
+//     echo "比較清單沒有任何商品喔!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!";
+//     exit();
+// }
 
 ?>
 <!DOCTYPE html>
