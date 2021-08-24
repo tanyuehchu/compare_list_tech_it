@@ -1,9 +1,14 @@
 //----------------------- 拖曳效果 -----------------------
-var saveDragId = '';
-var saveDragHtml = '';
+var saveDragId_1 = '';
+var saveDragHtml_1 = '';
+var saveDragId_2 = '';
+var saveDragHtml_2 = '';
+var saveDragId_3 = '';
+var saveDragHtml_3 = '';
+
 $(function () {
     $('ul#left_card').sortable({
-        connectWith: "ul#right_card,ul#middle_card,ul#middle2_card",
+        connectWith: "ul#right_card, ul#middle_card, ul#middle2_card",
 
 
     });
@@ -12,17 +17,17 @@ $(function () {
         connectWith: "ul#left_card",
         update: function (event, ui) {
             let _ui = $(ui.item[0]);
-            console.log(_ui.attr('data-price'));
-            alert(ui.item[0].getAttribute('data-price'));
+            // console.log(_ui.attr('data-price'));
+            // alert(ui.item[0].getAttribute('data-price'));
 
-            if (saveDragHtml == '') {
-                saveDragId = ui.item[0].dataset.id;
-                saveDragHtml = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+            if (saveDragHtml_1 == '') {
+                saveDragId_1 = ui.item[0].dataset.id;
+                saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
             } else {
-                $('ul#right_card').find(`li[data-id="${saveDragId}"]`).remove();
-                $('ul#left_card').append(saveDragHtml);
-                saveDragId = ui.item[0].dataset.id;
-                saveDragHtml = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                $('ul#right_card').find(`li[data-id="${saveDragId_1}"]`).remove();
+                $('ul#left_card').append(saveDragHtml_1);
+                saveDragId_1 = ui.item[0].dataset.id;
+                saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
             }
         }
     });
@@ -30,17 +35,17 @@ $(function () {
         connectWith: "ul#left_card",
         update: function (event, ui) {
             let _ui = $(ui.item[0]);
-            console.log(_ui.attr('data-price'));
-            alert(ui.item[0].getAttribute('data-price'));
+            // console.log(_ui.attr('data-price'));
+            // alert(ui.item[0].getAttribute('data-price'));
 
-            if (saveDragHtml == '') {
-                saveDragId = ui.item[0].dataset.id;
-                saveDragHtml = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+            if (saveDragHtml_2 == '') {
+                saveDragId_2 = ui.item[0].dataset.id;
+                saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
             } else {
-                $('ul#middle_card').find(`li[data-id="${saveDragId}"]`).remove();
-                $('ul#left_card').append(saveDragHtml);
-                saveDragId = ui.item[0].dataset.id;
-                saveDragHtml = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                $('ul#middle_card').find(`li[data-id="${saveDragId_2}"]`).remove();
+                $('ul#left_card').append(saveDragHtml_2);
+                saveDragId_2 = ui.item[0].dataset.id;
+                saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
             }
         }
     });
@@ -48,17 +53,17 @@ $(function () {
         connectWith: "ul#left_card",
         update: function (event, ui) {
             let _ui = $(ui.item[0]);
-            console.log(_ui.attr('data-price'));
-            alert(ui.item[0].getAttribute('data-price'));
+            // console.log(_ui.attr('data-price'));
+            // alert(ui.item[0].getAttribute('data-price'));
 
-            if (saveDragHtml == '') {
-                saveDragId = ui.item[0].dataset.id;
-                saveDragHtml = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+            if (saveDragHtml_3 == '') {
+                saveDragId_3 = ui.item[0].dataset.id;
+                saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
             } else {
-                $('ul#middle2_card').find(`li[data-id="${saveDragId}"]`).remove();
-                $('ul#left_card').append(saveDragHtml);
-                saveDragId = ui.item[0].dataset.id;
-                saveDragHtml = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                $('ul#middle2_card').find(`li[data-id="${saveDragId_3}"]`).remove();
+                $('ul#left_card').append(saveDragHtml_3);
+                saveDragId_3 = ui.item[0].dataset.id;
+                saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
             }
         }
     });
