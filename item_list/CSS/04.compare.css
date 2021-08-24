@@ -1,0 +1,612 @@
+body{
+    font-family: "Noto Sans", sans-serif;
+    background-color: #FAFAFA;    
+}
+::-webkit-scrollbar {
+    /*隱藏滾輪*/
+    display: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+
+.cate_area_title {
+    display: flex;
+    justify-content:center;
+    margin-top:3% ;
+}
+.cate_area_title h3{
+    font-size: .875rem;
+    letter-spacing: 4px;
+    font-weight:700;
+    line-height: 1rem;
+    margin-bottom: 12px;
+}
+.cate_area{
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content:center;
+    /* transform: translateX(-5%); */
+    margin-top:2% ;
+}
+.cate_area ul{
+    list-style: none;
+    width: 100%;
+    height: 15vh;
+    padding: 0;
+    overflow-y: scroll;
+}
+.cate_area ul li{
+    width: 100%;
+    border-bottom: 2px solid #E8E8E8;
+    margin-top: 12px;
+}
+.cate_area ul li.martop_0{
+    margin-top: 0;
+}
+.cate_area ul li a{
+    font-size: .75rem;
+    color: #929292;
+    letter-spacing: 3px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    margin-left: 28%;
+}
+ul li a.folder_1::before{
+    content: "01";
+    margin-right: 12px;
+}
+ul li a.folder_2::before{
+    content: "02";
+    margin-right: 12px;
+}
+ul li a.folder_3::before{
+    content: "03";
+    margin-right: 12px;
+}
+ul li a.folder_4::before{
+    content: "04";
+    margin-right: 12px;
+}
+ul li a.folder_5::before{
+    content: "05";
+    margin-right: 12px;
+}
+ul li a.folder_6::before{
+    content: "06";
+    margin-right: 12px;
+}
+ul li a.folder_7::before{
+    content: "07";
+    margin-right: 12px;
+}
+ul li a.folder_8::before{
+    content: "08";
+    margin-right: 12px;
+}
+ul li a.folder_9::before{
+    content: "09";
+    margin-right: 12px;
+}
+/* web版 類別資料夾 */
+.cate_wrap{
+    display: none;
+}
+/* web版 雷達圖 */
+.card_wrap{
+    display: none;
+}
+.select_area_title{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-top:3% ;
+}
+.select_area_title h3{
+    font-size: .875rem;
+    letter-spacing: 4px;
+    font-weight: 700;
+    line-height: 1rem;
+    margin-bottom: 12px;
+    font-family: "Noto Sans";
+}
+.select_area_title p{
+    font-size: .8rem;
+    color:#9b9b9b;
+    letter-spacing: 4px;
+    font-weight: 500;
+    line-height: 1.5rem;
+    margin-bottom: 0;
+    font-family: "Noto Sans";
+    /* border-bottom: 1.5px solid #afafaf; */
+}
+ul.slider_dots{
+    width:75vw;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 10%;
+    margin-bottom: 4%;
+    padding: 0;
+    /* transform: translateX(-5%); */
+    /* transition: .5s; */
+}
+ul.slider_dots .dots {
+    z-index: 99;
+    width: 30px;
+    height: 4px;
+    /* border: 1px solid black; */
+    background-color: #E8E8E8;
+    margin-right: 10px;
+}
+.select_area{
+    width: 90vw;
+    height: 15vh;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 4%;
+    position: relative;
+}
+.select_area .img_area{
+    width: calc(90vw - 60px);
+    height: 100%;
+    margin: 0 auto;
+    overflow-y: hidden;
+    overflow-x: scroll;
+}
+.select_area ul.img_wrap {
+    list-style: none;
+    display: flex;
+    width: calc(270vw - 180px);
+    height: 100%;
+    padding-left: 0;
+    margin-bottom: 0;
+
+}
+.select_area ul.img_wrap li{
+    /* outline: 1px solid rgb(227, 255, 65); */
+    width: calc(30vw - 20px);
+    height: 100%;
+    padding-left:8px ;
+    padding-right:8px ;
+}
+.select_area ul.img_wrap li .put_svg{
+    /* outline: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* .select_area ul.img_wrap li img{
+    width: calc(30vw - 20px);
+    height: 100%;
+    object-fit:contain;
+} */
+.select_area ul.img_wrap li img{
+    width: 100%;
+    height: 100%;
+    object-fit:contain;
+}
+.compare_table #right_card li a img{
+    width: 150px;
+    height: 150px;
+}
+.compare_table #middle_card img{
+    width: 150px;
+    height: 150px;
+}
+.compare_table #middle2_card img{
+    width: 150px;
+    height: 150px;
+}
+.compare_table #right_card li,.compare_table #middle_card li,.compare_table #middle2_card li{
+    list-style: none;
+}
+
+.select_area ul.img_wrap li svg{
+    /* outline: 1px solid rgb(121, 255, 121); */
+    width: 75%;
+    height: 75%;
+}
+.select_area button {
+    border: 0;
+    background-color: transparent;
+}
+.select_left_arrow_area,
+        .select_right_arrow_area {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 30px;
+            background-color: black;
+            /* opacity: .1; */
+            /* cursor: pointer; */
+        }
+
+        .select_left_arrow_area {
+            left: 0;
+        }
+
+        .select_right_arrow_area {
+            right: 0;
+        }
+
+        .fas {
+            color: #E8E8E8;
+            font-size: 1.6rem;
+        }
+        .compare_table_title {
+            display: flex;
+            justify-content:center;
+            margin-top:12% ;
+            margin-bottom:4% ;
+        }
+        .compare_table_title h3{        
+            font-size: .875rem;
+            letter-spacing: 4px;
+            font-weight: 700;
+            line-height: 1rem;
+            margin-bottom: 12px;
+            font-family: "Noto Sans";
+        }
+        .compare_table_title h3.web{
+            display: none;
+        }
+        .compare_table_title h3.mob{
+            display: block;
+        }
+        .compare_table{
+            width: 90vw;
+            display: grid;
+            grid-template-columns:1fr 2fr;
+            /* Grid-template-rows: 100px 200px; */
+            margin: 0 auto  ;
+        }
+        .compare_table .box{
+            text-align: center;
+            font-size: .813rem;
+            line-height: 2.6rem;
+            border-bottom: 2px solid #E8E8E8;
+        }
+        .compare_table .box_pic{
+            /* outline: 1px solid red; */
+            line-height: 7.5rem;
+
+        }
+        .compare_table .box_pic1{
+            /* outline: 1px solid green; */
+            /* background: url(../img/item-02.png) center center no-repeat; */
+            /* background-size: 100px 100px; */
+            /* background-size: 40% auto; */
+        }
+        
+       .compare_table .box03,
+       .compare_table .box04{
+           display: none;
+       }
+        @media screen and (min-width: 768px) {
+        /* -------- 標題:商品種類--------- */
+            .cate_area_title h3{
+                font-size: 1.876rem;
+                letter-spacing: 4px;
+                font-weight:700;
+                line-height: 2rem;
+                margin-bottom: 12px;
+            }
+
+        /* -------- mob版 類別資料夾--------- */
+            .cate_area{
+                display: none;
+            }
+
+        /* -------- web版 類別資料夾--------- */
+            .cate_wrap{
+                display: block;
+                /* outline: 1px solid red; */
+                width: 75vw;
+                height: 10vh;
+                margin: 0 auto;
+                margin-top: 2%;
+                margin-bottom: 3%;
+                position:relative;
+            }
+            .cate_area_web{
+                /* outline: 1px solid blue; */
+                width: calc(75vw - 60px);
+                height: 100%;
+                margin: 0 auto;
+                overflow-y: hidden;
+                overflow-x: scroll;
+            }
+            .cate_area_web ul{
+                /* outline: 1px solid yellow; */
+                list-style: none;
+                width: calc(225vw - 180px);
+                height: 100%;
+                display: flex;
+                align-items: center;
+                margin-bottom: 0;
+                padding: 0;
+
+            }
+            .cate_area_web ul li{
+                /* outline: 1px solid purple; */
+                width: calc(25vw - 20px);
+                padding-left:8px ;
+                padding-right:8px ;
+                border-bottom: 1px solid #E8E8E8;
+                margin-top: 12px;
+                margin-right: 2.5%;
+                margin-left: 2.5%;
+                text-align: center;         
+            }
+            .cate_area_web ul li a{
+                font-size: 1.5rem;
+                color: #929292;
+                letter-spacing: 3px;
+                font-weight: 300;
+                line-height: 4rem;   
+            }
+            .cate_area_web ul li a:hover{
+                text-decoration: none;
+            }
+            .cate_wrap button {
+                border: 0;
+                background-color: transparent;
+            }
+            .cate_wrap_left_arrow_area,
+            .cate_wrap_right_arrow_area {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 30px;
+                background-color: black;
+                /* opacity: .1; */
+                /* cursor: pointer; */
+            }
+    
+            .cate_wrap_left_arrow_area {
+                left: 0;
+            }
+    
+            .cate_wrap_right_arrow_area {
+                right: 0;
+            }
+
+            /* -------- 快速比較區 (web_only) -------- */
+            .card_wrap{
+                width: 90vw;
+                height: 60vh;
+                display: block;
+                background-color: #cfe2e660;
+                border-radius: 10.63rem 10.63rem 0 0;
+                margin: 0 auto;
+            }         
+            .card_wrap h3{
+                /* padding-top: 1.5%; */
+                width: 100%;
+                text-align: center;
+                font-size: 1.876rem;
+                line-height: 2rem;
+                padding-top: 1.75rem;
+                padding-bottom: 1.75rem;
+                margin: 0 auto;
+                margin-bottom: 0;
+                font-weight: 700;
+            }
+            .card_wrap .outerwrap{
+                /* outline: 5px solid blue; */
+                width: 100%;
+                height: calc(60vh - 5.5rem);
+                display: flex;
+                justify-content: space-around;
+            }
+            /* -------- 雷達圖 (web_only) -------- */
+            /* .card_radar{
+                outline: 1px solid red;
+                width: 50%;
+                height: 100%;
+                字下不來!!!!!!!!!!
+                position: relative;
+                box-shadow: 0 -10px 30px  #F6F6F6;
+            } */
+            #chart {
+                text-align: left;
+                /* box-shadow: 0px 2px 8px rgba(0,0,0,.2); */
+                /* border: 1px solid #aaa; */
+                margin: 32px auto;
+                background: transparent;
+              }
+            .example-container {
+                /* outline: 7px solid pink; */
+                margin: 0 auto;
+                max-width: 90%;
+                /* max-width: 500px; */
+                height: 100%; 
+                /* height: 300px; */
+            }
+
+            /* 字下不來!!!!!!! */
+            .dvx-chart-legend-group{
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            .dvx-chart-legend-group text{
+                letter-spacing: 1px;
+                font-size: 1.2rem;
+            }
+
+            /* -------- 小卡 (web_only) -------- */
+            .itemcard{
+                /* outline: 1px solid purple; */
+                width:25%;
+                height:90%;
+            }
+            .itemcard .top_area{
+                /* outline: 2px solid pink; */
+                width: 100%;
+                height: 10%;
+            }
+            .itemcard .top_area h4{
+                text-align: center;
+            }
+            .itemcard .top_area h4::before{
+                content: "";
+                border-right:7px solid #B3ADF2 ;
+            }
+            .itemcard .top_area h4::before{
+                content: "";
+                margin-right: 10px;
+                border-right:7px solid #eeaacb ;
+            }
+            .itemcard .bottom_area{
+                /* outline: 3px solid green; */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 90%;
+
+            }
+            .itemcard .bottom_area a{
+                /* outline: 1px solid rebeccapurple; */
+                width: 70%;
+                height: 70%;
+            }
+            .itemcard .bottom_area img{
+                /* outline: 1px solid orange; */
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            /* -------- 商品選擇區 -------- */
+            .select_area_title h3{
+                font-size: 1.876rem;
+                line-height: 2rem;
+                margin-bottom: 28px;
+            }
+
+            .select_area_title p{
+                font-size: 1.6rem;
+                line-height:2.2rem;
+            }
+            ul.slider_dots{
+                margin-top: 6%;
+                margin-bottom: 6%;
+            }
+
+            ul.slider_dots .dots{
+                width: 60px;
+                height: 8px;
+                margin-right: 20px;
+            }
+
+            .select_area ul.img_wrap li svg{
+                /* outline: 1px solid rgb(121, 255, 121); */
+                width: 42%;
+                height: auto;
+            }
+            /* -------- 比較表格 -------- */
+            .compare_table_title h3{        
+                font-size: 1.876rem;
+                line-height: 2rem;
+                margin-bottom: 28px;    
+            }
+            .compare_table_title h3.web{
+                display: block;
+            }
+            .compare_table_title h3.mob{
+                display: none;
+            }
+            .compare_table{
+                width: 90vw;
+                display: grid;
+                grid-template-columns:1fr 2fr 2fr 2fr;
+                /* Grid-template-rows: 100px 200px; */
+            }
+            .compare_table .box{
+                text-align: center;
+                font-size: 1.25rem;
+                line-height: 3.75rem;
+                border-bottom: 2px solid #E8E8E8;
+            }
+            .compare_table .box03,
+            .compare_table .box04{
+           display: grid;
+            }
+            .compare_table .best{
+           color:rgb(255, 101, 114);
+            }
+            .compare_table .box_pic{
+                /* outline: 1px solid red; */
+                line-height: 16rem;
+            }
+            .compare_table .box_pic1{
+                /* outline: 1px solid green; */
+                /* background: url(../img/item-02.png) center center no-repeat;
+                background-size: 40% auto; */
+            }
+            .compare_table .box_pic2{
+                /* outline: 1px solid green; */
+                /* background: url(../img/item-01.png) center center no-repeat;
+                background-size: 40% auto; */
+            }
+            .compare_table .box_pic3{
+                /* outline: 1px solid green; */
+                /* background: url(../img/item-02.png) center center no-repeat;
+                background-size: 40% auto; */
+            }
+              
+             
+          }
+          
+
+
+
+          .container{ 
+            display: flex;
+        }
+        .card{
+            margin: 30px;
+            padding:20px;
+            width: 200px;
+            height:350px;
+            color:white;
+            background-color: rgb(255, 253, 240);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card div{
+            margin:10px;
+            padding:10px;
+            width:50px;
+            height:50px;
+            padding:10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            background-color: rgb(13, 66, 64);
+        }
+        .ghost {
+            opacity: 0.4;
+        }
+        .list-group {
+            margin: 20px;
+        }
+        button {
+            margin: 40px 20px;
+            float: right;
+        }
+/* *{
+    outline: 1px solid red;
+} */
