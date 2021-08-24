@@ -38,6 +38,11 @@ body{
     display: none;
 }
 
+ul{
+    padding: 0;
+    margin: 0;
+}
+
 .pointer {
     cursor: pointer;
 }
@@ -45,7 +50,7 @@ body{
 .cate_area_title {
     display: flex;
     justify-content:center;
-    margin-top:3% ;
+    margin-top:10% ;
 }
 .cate_area_title h3{
     font-size: .875rem;
@@ -134,7 +139,8 @@ ul li a.folder_9::before{
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    margin-top:3% ;
+    margin-top:9% ;
+    /* margin-top:3% ; */
 }
 .select_area_title h3{
     font-size: .875rem;
@@ -147,8 +153,8 @@ ul li a.folder_9::before{
 .select_area_title p{
     font-size: .8rem;
     color:#9b9b9b;
-    letter-spacing: 4px;
-    font-weight: 500;
+    letter-spacing: 2px;
+    font-weight: 300;
     line-height: 1.5rem;
     margin-bottom: 0;
     font-family: "Noto Sans";
@@ -160,11 +166,11 @@ ul.slider_dots{
     display: flex;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 10%;
+    margin-top: 0%;
     margin-bottom: 4%;
     padding: 0;
-    /* transform: translateX(-5%); */
-    /* transition: .5s; */
+    /* transform: translateX(-5%);
+    transition: .5s; */
 }
 ul.slider_dots .dots {
     z-index: 99;
@@ -178,9 +184,9 @@ ul.slider_dots .dots {
     display: flex;
     align-items: center;
     width: 90vw;
-    height: 45vh;
+    height: 15vh;
     margin: 0 auto;
-    margin-top: 2%;
+    margin-top: 8%;
     margin-bottom: 4%;
     position: relative;
 }
@@ -199,6 +205,7 @@ ul.slider_dots .dots {
     width: 16%;
     padding: 4rem;
     background: #efefef;
+    margin-right: 3rem;
 }
 
 .select_area ul.img_wrap {
@@ -212,7 +219,7 @@ ul.slider_dots .dots {
 }
 .select_area ul.img_wrap li{
     /* outline: 1px solid rgb(227, 255, 65); */
-    width: calc(26vw - 20px);
+    width: calc(30vw - 20px);
     height: 100%;
     padding-left:8px ;
     padding-right:8px ;
@@ -248,7 +255,7 @@ ul.slider_dots .dots {
             top: 0;
             bottom: 0;
             width: 30px;
-            background-color: black;
+            background-color: rgb(80, 80, 80);
             /* opacity: .1; */
             /* cursor: pointer; */
         }
@@ -262,7 +269,7 @@ ul.slider_dots .dots {
         }
 
         .fas {
-            color: #E8E8E8;
+            color: #dadada;
             font-size: 1.6rem;
         }
 
@@ -291,25 +298,29 @@ ul.slider_dots .dots {
             display: grid;
             grid-template-columns:1fr 2fr;
             /* Grid-template-rows: 100px 200px; */
-            margin: 0 auto  ;
+            margin: 0 auto 3rem;
+            /* margin: 0 auto  ; */
         }
         .compare_table .box{
             text-align: center;
             font-size: .813rem;
             line-height: 2.6rem;
-            border-bottom: 2px solid #E8E8E8;
+            border-bottom: 1px solid #E8E8E8;
         }
+
         .compare_table .box_pic{
             /* outline: 1px solid red; */
             line-height: 7.5rem;
+            border-top: 1px solid #ccc;
+            padding: 2rem;
+        }
 
-        }
         .compare_table .box_pic1{
-            /* outline: 1px solid green; */
-            /* background: url(../img/item-02.png) center center no-repeat; */
-            /* background-size: 100px 100px; */
-            /* background-size: 40% auto; */
+            padding: 2rem;
+            background-color: rgba(209, 209, 209, 0.466);
+            box-sizing: content-box;
         }
+
         
        .compare_table .box03,
        .compare_table .box04{
@@ -317,6 +328,9 @@ ul.slider_dots .dots {
        }
         @media screen and (min-width: 768px) {
         /* -------- 標題:商品種類--------- */
+            .cate_area_title {
+                margin-top: 3%;
+            }
             .cate_area_title h3{
                 font-size: 1.876rem;
                 letter-spacing: 4px;
@@ -405,14 +419,37 @@ ul.slider_dots .dots {
             }
 
             /* -------- 快速比較區 (web_only) -------- */
+            /* animation */
+            
+
             /* 主要的卡 */
             .compare_card_list{
                 padding: 0;
                 margin: 0%;
+                position: relative;
             }
 
             .compare_card_list>li{
                 list-style: none;
+                position: absolute;
+                top: 0%;
+                transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+            }
+            .compare_card_list .ori_card_1{
+                left: 0;
+                z-index:5;
+            }
+            .compare_card_list .ori_card_2{
+                left: 5%;
+                background-color: rgba(201, 201, 201, 0.445);
+                opacity: .5;
+                z-index: 2;
+            }
+            .compare_card_list .ori_card_3{
+                left: 10%;
+                background-color: rgba(214, 214, 214, 0.377);
+                opacity: .3;
+                z-index: 1;
             }
 
             .compare_card{
@@ -422,14 +459,17 @@ ul.slider_dots .dots {
                 border-radius: 0 6rem 6rem 0;
             }
 
+
             .card_wrap{
                 width: 90vw;
-                min-height: 60vh;
+                /* 先寫死 */
+                min-height: 80vh; 
                 display: block;
                 background: linear-gradient(to bottom, #cfe2e654, #ffffff00); 
                 border-radius: 10.63rem 10.63rem 0 0;
                 margin: 0 auto;
                 box-shadow: 0px -15px 30px #c5c5c53d;
+                overflow: hidden;
             }         
             .card_wrap h3{
                 /* padding-top: 1.5%; */
@@ -529,6 +569,15 @@ ul.slider_dots .dots {
             }
 
             /* -------- 商品選擇區 -------- */
+            .select_area{
+                height: 45vh;
+                margin-top: 2%;
+            }
+
+            .select_area_title{
+                margin-top:7% ;
+            }
+
             .select_area_title h3{
                 font-size: 1.876rem;
                 line-height: 2rem;
@@ -548,6 +597,11 @@ ul.slider_dots .dots {
                 width: 60px;
                 height: 8px;
                 margin-right: 20px;
+            }
+
+            .select_area ul.img_wrap li{
+                /* outline: 1px solid rgb(227, 255, 65); */
+                width: calc(26vw - 20px);
             }
 
             .select_area ul.img_wrap li svg{
@@ -602,6 +656,7 @@ ul.slider_dots .dots {
                 border-top: 1px solid #ccc;
                 line-height: 24rem;
                 margin-bottom: 0;
+                padding: 0rem;
             }
             .compare_table .box_pic1{
                 /* outline: 1px solid green; */

@@ -74,16 +74,23 @@ $(function () {
 
 // ------------------------ 換卡片 ------------------------
 
-// var $card = $('.card');
-// var lastCard = $(".card-list .card").length - 1;
 
-// $(this).click(function () {
-//     var prependList = function () {
-//         if ($('.card').hasClass('activeNow')) {
-//             var $slicedCard = $('.card').slice(lastCard).removeClass('transformThis activeNow');
-//             $('ul').prepend($slicedCard);
-//         }
-//     }
-//     $('li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
-//     setTimeout(function () { prependList(); }, 150);
-// });
+$('.compare_card_list .compare_card').click(function () {
+    console.log('click');
+    if ($(this).hasClass('ori_card_2')) {
+        console.log('has 2');
+        $('.ori_card_3').removeClass('ori_card_3').addClass('ori_card_2');
+        $('.ori_card_1').removeClass('ori_card_1').addClass('ori_card_3');
+
+        $(this).removeClass('ori_card_2').addClass('ori_card_1');
+    };
+
+    if ($(this).hasClass('ori_card_3')) {
+        console.log('has 3');
+        $('.ori_card_2').removeClass('ori_card_2').addClass('ori_card_3');
+        $('.ori_card_1').removeClass('ori_card_1').addClass('ori_card_2');
+
+        $(this).removeClass('ori_card_3').addClass('ori_card_1');
+    }
+
+})

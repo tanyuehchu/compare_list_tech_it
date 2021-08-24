@@ -56,6 +56,12 @@
     <link rel="stylesheet" href="./CSS/04.compare.css">
 
 
+    <!-- fa -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
     <!-- JS link ----------------------------------->
     <script src="JS/1.header.js"></script>
 
@@ -496,7 +502,69 @@
             <h3 class="display_title">快速比較<small> (僅提供站內資料)</small></h3>
 
             <ul class="compare_card_list">
-                <li class="compare_card">
+                <li class="compare_card ori_card_1">
+                    <div class="card_title row">
+                        <div class="title_wrap">
+                            <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
+                            <h4 class="display_1">掃地機器人二代 S5 Max(黑)</h4>
+                        </div>
+                        <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
+                    </div>
+                    <div class="outerwrap">
+                        <!-------- 小卡 (web_only) -------->
+                        <div class="itemcard">
+                            <a href="#">
+                                <img src="./img_prod_thumbnail/0302.png" alt="">
+                            </a>
+                        </div>
+                        <!-------- 雷達圖 (web_only) -------->
+                        <div class="card_radar">
+                            <div id="chart"></div>
+                        </div>
+                        <div class="icon_wrap">
+                            <a href="#" class="compare">
+                                <img src="./img/icon_saved.svg" alt="">
+                                <span class="display_title_2">加入喜好清單</span>
+                            </a>
+                            <a href="#" class="shopping-cart">
+                                <img src="./img/icon_shopping-cart.svg" alt="">
+                                <span class="display_title_2">加入購物車</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="compare_card ori_card_2">
+                    <div class="card_title row">
+                        <div class="title_wrap">
+                            <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
+                            <h4 class="display_1">掃地機器人二代 S5 Max(黑)</h4>
+                        </div>
+                        <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
+                    </div>
+                    <div class="outerwrap">
+                        <!-------- 小卡 (web_only) -------->
+                        <div class="itemcard">
+                            <a href="#">
+                                <img src="./img_prod_thumbnail/0302.png" alt="">
+                            </a>
+                        </div>
+                        <!-------- 雷達圖 (web_only) -------->
+                        <div class="card_radar">
+                            <div id="chart"></div>
+                        </div>
+                        <div class="icon_wrap">
+                            <a href="#" class="compare">
+                                <img src="./img/icon_saved.svg" alt="">
+                                <span class="display_title_2">加入喜好清單</span>
+                            </a>
+                            <a href="#" class="shopping-cart">
+                                <img src="./img/icon_shopping-cart.svg" alt="">
+                                <span class="display_title_2">加入購物車</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="compare_card ori_card_3">
                     <div class="card_title row">
                         <div class="title_wrap">
                             <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
@@ -555,7 +623,7 @@
                     <li data-id="1.8"><a href=""><img class="img1" src="./img_prod_thumbnail/0312.png" alt=""></a></li>
                 </ul>
             </div>
-            <div class="plus">
+            <div class="plus d-none d-md-block">
                 <a href="">
                     <img class="img9" src="img/icon_compare-list.svg" alt="">
                 </a>
@@ -918,6 +986,29 @@
 
     <!--  -->
     <script src="JS/04.compare02.js"></script>
+
+    <!-- <script>
+        var $card = $('.compare_card');
+        var lastCard = $(".compare_card_list .compare_card").length - 1;
+
+        console.log(lastCard);
+
+        $('.compare_card').click(function () {
+            console.log('click');
+            $(this).addClass('activeNow');
+
+            var prependList = function () {
+                if ($('.compare_card').hasClass('activeNow')) {
+                    console.log('active');
+                    var $slicedCard = $('.compare_card').slice(lastCard).removeClass('transformThis activeNow');
+                    $('.compare_card_list').prepend($slicedCard);
+                    console.log($('.compare_card_list'));
+                }
+            }
+            $('.compare_card > li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
+            setTimeout(function () { prependList(); }, 200);
+        });
+    </script> -->
 </body>
 
 </html>
