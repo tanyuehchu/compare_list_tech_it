@@ -453,7 +453,7 @@
     <!-- ★★★ 請不要調整wrap原數值(in 0.body.css) -->
     <div class="wrap">
         <div class="cate_area_title">
-            <h3>商品種類</h3>
+            <h3 class="display_title">商品種類</h3>
         </div>
         <!-------- mob版 類別資料夾-------->
         <div class="cate_area">
@@ -493,36 +493,37 @@
         </div>
         <!-------- 快速比較區 (web_only) -------->
         <div class="card_wrap">
-            <h3>快速比較<small> (僅提供站內資料)</small></h3>
-            <!-- <div id="chart"></div>
-            <div class="card_radar">
-                <canvas id="radarChart"></canvas>
-            </div> -->
+            <h3 class="display_title">快速比較<small> (僅提供站內資料)</small></h3>
 
-
-            <div class="outerwrap">
-                <!-------- 小卡 (web_only) -------->
-                <div class="itemcard">
-                    <h4 class="aaaaa">掃地機器人二代 S5 Max(黑)</h4>
-                    <div class="bottom_area">
+            <div class="compare_card">
+                <div class="card_title row">
+                    <div class="title_wrap">
+                        <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
+                        <h4 class="display_1">掃地機器人二代 S5 Max(黑)</h4>
+                    </div>
+                    <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
+                </div>
+                <div class="outerwrap">
+                    <!-------- 小卡 (web_only) -------->
+                    <div class="itemcard">
                         <a href="#">
                             <img src="./img_prod_thumbnail/0302.png" alt="">
                         </a>
                     </div>
-                </div>
-                <!-------- 雷達圖 (web_only) -------->
-                <div class="card_radar">
-                    <div id="chart"></div>
-                </div>
-                <div class="top_area">
-                    <a href="#" class="compare">
-                        <img src="./img/icon_trash.svg" alt="">
-                        <span>刪除</span>
-                    </a>
-                    <a href="#" class="shopping-cart">
-                        <img src="./img/icon_shopping-cart.svg" alt="">
-                        <span>加入購物車</span>
-                    </a>
+                    <!-------- 雷達圖 (web_only) -------->
+                    <div class="card_radar">
+                        <div id="chart"></div>
+                    </div>
+                    <div class="icon_wrap">
+                        <a href="#" class="compare">
+                            <img src="./img/icon_saved.svg" alt="">
+                            <span class="display_title_2">加入喜好清單</span>
+                        </a>
+                        <a href="#" class="shopping-cart">
+                            <img src="./img/icon_shopping-cart.svg" alt="">
+                            <span class="display_title_2">加入購物車</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -532,13 +533,15 @@
             <h3>01 掃地機器人</h3>
             <p>(您加入比較清單的商品)</p>
         </div>
-        <ul class="slider_dots">
-            <li class="dots dot1"></li>
-            <li class="dots dot2"></li>
-            <li class="dots dot3"></li>
-        </ul>
         <div class="select_area">
             <div class="img_area">
+                <div class="plus put_svg">
+                    haha
+                    <a href="">
+                        <img class="img9" src="img/icon_compare-list.svg" alt="">
+                    </a>
+                    </li>
+                </div>
                 <ul class="img_wrap" id="left_card">
                     <li data-id="1.1" data-price='100'><a href=""><img class="img1" src="./img_prod_thumbnail/0301.png"
                                 alt=""></a>
@@ -554,29 +557,6 @@
                     <li data-id="1.6"><a href=""><img class="img1" src="./img_prod_thumbnail/0306.png" alt=""></a></li>
                     <li data-id="1.7"><a href=""><img class="img1" src="./img_prod_thumbnail/0310.png" alt=""></a></li>
                     <li data-id="1.8"><a href=""><img class="img1" src="./img_prod_thumbnail/0312.png" alt=""></a></li>
-                    <li class="put_svg"><a href="">
-                            <img class="img9" src="img/icon_compare-list.svg" alt="">
-                            <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.51 37.51">
-                                <defs>
-                                    <style>
-                                        .cls-1 {
-                                            fill: none;
-
-                                            stroke: #929292;
-                                            stroke-miterlimit: 10;
-                                            stroke-width: 2px;
-                                        }
-                                    </style>
-                                </defs>
-                                <g id="圖層_2" data-name="圖層 2">
-                                    <g id="圖層_2-2" data-name="圖層 2">
-                                        <line class="cls-1" y1="17.85" x2="37.51" y2="17.85" />
-                                        <line class="cls-1" x1="18.83" x2="18.83" y2="37.51" />
-                                    </g>
-                                </g>
-                            </svg> -->
-                        </a>
-                    </li>
                 </ul>
             </div>
             <button class="select_left_arrow_area">
@@ -586,6 +566,11 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
+        <ul class="slider_dots">
+            <li class="dots dot1"></li>
+            <li class="dots dot2"></li>
+            <li class="dots dot3"></li>
+        </ul>
 
         <!-------- 比較表格 -------->
         <div class="compare_table_title">
@@ -595,7 +580,7 @@
 
         <div class="compare_table">
             <div class="box box01 box_pic">item_pic</div>
-            <ul class="box box02 box_pic box_pic1 card" id="right_card" class=""></ul>
+            <ul class="box box02 box_pic box_pic1" id="right_card" class=""></ul>
             <ul class="box box03 box_pic box_pic2" id="middle_card"></ul>
             <ul class="box box04 box_pic box_pic3" id="middle2_card"></ul>
             <div class="box box01">item1</div>
@@ -911,6 +896,23 @@
 
     <!-------- Radar Chart -------->
     <script src="./JS/04.radar.js" type="text/javascript"></script>
+    <script>
+        $(function () {
+            $('#chart').radarChart({
+                size: [500, 400],
+                step: 1,
+                title: "",
+                values: {
+                    "hello": 4,
+                    "world": 3.5,
+                    "C++": 2.5,
+                    "Problem Solving": 1,
+                    "PHP": 3.5,
+                },
+                showAxisLabels: true
+            });
+        });
+    </script>
 
     <!--  -->
     <script src="JS/04.compare02.js"></script>

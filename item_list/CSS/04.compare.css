@@ -1,3 +1,34 @@
+/* font rule */
+.display_1{
+    font-size: 1.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+}
+
+.display_2{
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.3rem;
+    line-height: 1.2rem;
+}
+.display_3{
+    font-size: .8rem;
+    font-weight: 300;
+    letter-spacing: 0.2rem;
+    line-height: 1.5rem;
+}
+.display_title{
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.3rem;
+    font-family: 'Fira Sans', sans-serif;
+}
+.display_title_2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+}
+/* ------------------------------------------------ */
 body{
     font-family: "Noto Sans", sans-serif;
     background-color: #FAFAFA;    
@@ -145,19 +176,27 @@ ul.slider_dots .dots {
 }
 .select_area{
     width: 90vw;
-    height: 15vh;
+    height: 30vh;
     margin: 0 auto;
     margin-top: 2%;
     margin-bottom: 4%;
     position: relative;
 }
 .select_area .img_area{
+    display: flex;
     width: calc(90vw - 60px);
     height: 100%;
     margin: 0 auto;
     overflow-y: hidden;
     overflow-x: scroll;
+    align-items: center;
 }
+
+/* 嗚嗚改不了大小 */
+.plus{
+    width: 30%;
+}
+
 .select_area ul.img_wrap {
     list-style: none;
     display: flex;
@@ -174,40 +213,24 @@ ul.slider_dots .dots {
     padding-left:8px ;
     padding-right:8px ;
 }
-.select_area ul.img_wrap li .put_svg{
-    /* outline: 1px solid red; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-/* .select_area ul.img_wrap li img{
-    width: calc(30vw - 20px);
-    height: 100%;
-    object-fit:contain;
-} */
+
+
 .select_area ul.img_wrap li img{
     width: 100%;
     height: 100%;
     object-fit:contain;
 }
-.compare_table #right_card li a img{
-    width: 150px;
-    height: 150px;
+#right_card img, #middle_card img, #middle2_card img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
-.compare_table #middle_card img{
-    width: 150px;
-    height: 150px;
-}
-.compare_table #middle2_card img{
-    width: 150px;
-    height: 150px;
-}
+
 .compare_table #right_card li,.compare_table #middle_card li,.compare_table #middle2_card li{
     list-style: none;
 }
 
 .select_area ul.img_wrap li svg{
-    /* outline: 1px solid rgb(121, 255, 121); */
     width: 75%;
     height: 75%;
 }
@@ -238,6 +261,7 @@ ul.slider_dots .dots {
             color: #E8E8E8;
             font-size: 1.6rem;
         }
+
         .compare_table_title {
             display: flex;
             justify-content:center;
@@ -377,13 +401,23 @@ ul.slider_dots .dots {
             }
 
             /* -------- 快速比較區 (web_only) -------- */
+            /* 主要的卡 */
+            .compare_card{
+                width: 90%;
+                background-color: white;
+                /* padding: 2rem 0 0 0rem; */
+                border-radius: 0 6rem 6rem 0;
+            }
+
+
             .card_wrap{
                 width: 90vw;
-                height: 60vh;
+                min-height: 60vh;
                 display: block;
-                background-color: #cfe2e660;
+                background: linear-gradient(to bottom, #cfe2e654, #ffffff00); 
                 border-radius: 10.63rem 10.63rem 0 0;
                 margin: 0 auto;
+                box-shadow: 0px -15px 30px #c5c5c53d;
             }         
             .card_wrap h3{
                 /* padding-top: 1.5%; */
@@ -404,34 +438,37 @@ ul.slider_dots .dots {
                 display: flex;
                 justify-content: space-around;
             }
+
+            .card_title{
+                padding: 2rem 5rem 0;
+                justify-content: space-between;
+                align-items: center;
+                margin: 3rem 0 0 0;
+            }
+
+            .card_title a{
+                width: 3rem;
+            }
+            .card_title a>img{
+                width: 100%;
+            }
+
             /* -------- 雷達圖 (web_only) -------- */
             .card_radar{
-                outline: 1px solid red;
-                background-color: red;
-                width: 50%;
+                /* outline: 1px solid red; */
+                width: 100%;
                 height: 100%;
                 /* 字下不來!!!!!!!!!! */
                 position: relative;
-                box-shadow: 0 -10px 30px  #F6F6F6;
             }
             #chart {
                 text-align: left;
-                /* box-shadow: 0px 2px 8px rgba(0,0,0,.2); */
-                /* border: 1px solid #aaa; */
                 margin: 32px auto;
                 background: transparent;
+                transform: scale(1.5);
               }
-            .example-container {
-                /* outline: 7px solid pink; */
-                margin: 0 auto;
-                max-width: 90%;
-                /* max-width: 500px; */
-                height: 100%; 
-                /* height: 300px; */
-            }
-
             /* 字下不來!!!!!!! */
-            .dvx-chart-legend-group{
+            /* .dvx-chart-legend-group{
                 display: block;
                 position: absolute;
                 bottom: 0;
@@ -440,56 +477,41 @@ ul.slider_dots .dots {
             .dvx-chart-legend-group text{
                 letter-spacing: 1px;
                 font-size: 1.2rem;
-            }
+            } */
 
             /* -------- 小卡 (web_only) -------- */
+
+            .icon_wrap{
+                /* background-color: red; */
+                width: 30%;
+                margin: auto 3rem 10% 0;
+            }
+
+            .icon_wrap > a{
+                display: flex;
+                padding: 5% 10%;
+                background-color: white;
+                color: #000000;
+                margin: 1rem 0;
+                border-radius: 20px;
+                align-items: center;;
+                box-shadow:  10px 15px 20px #d4d4d4,
+                10px -15px 20px #f9f9f9;
+            }
+
+            .icon_wrap a >img{
+                width: 15%;
+                margin-right: 15%;
+            }
+
             .itemcard{
-                background-color: red;
-                outline: 1px solid purple;
                 width:25%;
                 height:90%;
             }
-            .itemcard .top_area{
-                outline: 2px solid pink;
-                width: 15%;
-                margin: auto 0 2%;
-            }
 
-            .top_area > a{
-                display: block;
-                padding: 3%;
-                color: #929292;
-            }
-
-            .top_area a >img{
-                width: 15%;
-                margin-right: 5%;
-            }
-
-            .itemcard > h4{
-                text-align: center;
-            }
-            .itemcard > h4::before{
-                content: "";
-                border-right:7px solid #B3ADF2 ;
-            }
-            .itemcard .bottom_area{
-                /* outline: 3px solid green; */
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-                height: 90%;
-
-            }
-            .itemcard .bottom_area a{
-                /* outline: 1px solid rebeccapurple; */
-                width: 70%;
-                height: 70%;
-            }
-            .itemcard .bottom_area img{
+            .itemcard  img{
                 /* outline: 1px solid orange; */
-                width: 100%;
+                width: 150%;
                 height: 100%;
                 object-fit: contain;
             }
@@ -506,7 +528,7 @@ ul.slider_dots .dots {
                 line-height:2.2rem;
             }
             ul.slider_dots{
-                margin-top: 6%;
+                margin-top: 0%;
                 margin-bottom: 6%;
             }
 
@@ -522,6 +544,12 @@ ul.slider_dots .dots {
                 height: auto;
             }
             /* -------- 比較表格 -------- */
+
+            .compare_table_title{
+                margin-top: 8%;
+                margin-bottom: 4%;
+            }
+            
             .compare_table_title h3{        
                 font-size: 1.876rem;
                 line-height: 2rem;
@@ -538,23 +566,30 @@ ul.slider_dots .dots {
                 display: grid;
                 grid-template-columns:1fr 2fr 2fr 2fr;
                 /* Grid-template-rows: 100px 200px; */
+                margin-bottom: 6rem;
             }
             .compare_table .box{
                 text-align: center;
                 font-size: 1.25rem;
                 line-height: 3.75rem;
                 border-bottom: 2px solid #E8E8E8;
+                padding: 1rem;
+                border-right: 1px solid #ccc;
             }
             .compare_table .box03,
             .compare_table .box04{
            display: grid;
             }
             .compare_table .best{
-           color:rgb(255, 101, 114);
+                color:black;
+                font-weight: 600;
+                background-color: #DBE1E4;
             }
             .compare_table .box_pic{
                 /* outline: 1px solid red; */
-                line-height: 16rem;
+                border-top: 1px solid #ccc;
+                line-height: 24rem;
+                margin-bottom: 0;
             }
             .compare_table .box_pic1{
                 /* outline: 1px solid green; */
@@ -574,9 +609,6 @@ ul.slider_dots .dots {
               
              
           }
-          
-
-
 
           .container{ 
             display: flex;

@@ -1,18 +1,4 @@
-$(function () {
-    $('#chart').radarChart({
-        size: [500, 400],
-        step: 1,
-        title: "kkk",
-        values: {
-            "hello": 4,
-            "world": 3.5,
-            "C++": 2.5,
-            "Problem Solving": 1,
-            "PHP": 3.5,
-        },
-        showAxisLabels: true
-    });
-});
+
 
 (function ($) {
 
