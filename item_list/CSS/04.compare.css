@@ -175,8 +175,10 @@ ul.slider_dots .dots {
     margin-right: 10px;
 }
 .select_area{
+    display: flex;
+    align-items: center;
     width: 90vw;
-    height: 30vh;
+    height: 45vh;
     margin: 0 auto;
     margin-top: 2%;
     margin-bottom: 4%;
@@ -192,15 +194,17 @@ ul.slider_dots .dots {
     align-items: center;
 }
 
-/* 嗚嗚改不了大小 */
-.plus{
-    width: 30%;
+
+.plus {
+    width: 16%;
+    padding: 4rem;
+    background: #efefef;
 }
 
 .select_area ul.img_wrap {
     list-style: none;
     display: flex;
-    width: calc(270vw - 180px);
+    width: calc(240vw - 180px);
     height: 100%;
     padding-left: 0;
     margin-bottom: 0;
@@ -208,7 +212,7 @@ ul.slider_dots .dots {
 }
 .select_area ul.img_wrap li{
     /* outline: 1px solid rgb(227, 255, 65); */
-    width: calc(30vw - 20px);
+    width: calc(26vw - 20px);
     height: 100%;
     padding-left:8px ;
     padding-right:8px ;
@@ -402,13 +406,21 @@ ul.slider_dots .dots {
 
             /* -------- 快速比較區 (web_only) -------- */
             /* 主要的卡 */
+            .compare_card_list{
+                padding: 0;
+                margin: 0%;
+            }
+
+            .compare_card_list>li{
+                list-style: none;
+            }
+
             .compare_card{
                 width: 90%;
                 background-color: white;
                 /* padding: 2rem 0 0 0rem; */
                 border-radius: 0 6rem 6rem 0;
             }
-
 
             .card_wrap{
                 width: 90vw;

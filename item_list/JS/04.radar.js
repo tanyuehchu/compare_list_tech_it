@@ -12,7 +12,7 @@
                 step: 1,
                 size: [300, 300],
                 values: {},
-                color: [0, 128, 255]
+                color: [255, 255, 255]
             }, settings);
             this.width = settings.size[0];
             this.height = settings.size[1];
@@ -106,10 +106,10 @@
 
             this.cxt.lineTo(end.x, end.y);
             var grad = this.cxt.createLinearGradient(0, 0, 0, this.height);
-            grad.addColorStop(0, 'rgba(255, 192, 203, 0');
-            grad.addColorStop(1, 'rgba(255, 192, 203, 1');
+            grad.addColorStop(0, 'rgba(214, 126, 206, 0');
+            grad.addColorStop(1, 'rgba(214, 126, 206, 1');
             this.cxt.fillStyle = grad;
-            this.cxt.shadowBlur = 2;
+            this.cxt.shadowBlur = 10;
             this.cxt.shadowColor = "rgba(0, 0, 0, .2)";
             this.cxt.stroke();
             this.cxt.fill();
@@ -119,7 +119,7 @@
             i = 0;
             $.each(this.settings.values, function (key, val) {
                 that.newCanvas('label-' + i, i * 250);
-                that.cxt.fillStyle = "rgba(0,0,0,.8)";
+                that.cxt.fillStyle = "rgba(0,0,0,.5)";
                 that.cxt.strokeStyle = "rgba(0,0,0,.5)";
                 that.cxt.font = "bold 12px Verdana";
                 var dist = Math.min(spacing * val, size * spacing);

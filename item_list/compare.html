@@ -495,37 +495,39 @@
         <div class="card_wrap">
             <h3 class="display_title">快速比較<small> (僅提供站內資料)</small></h3>
 
-            <div class="compare_card">
-                <div class="card_title row">
-                    <div class="title_wrap">
-                        <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
-                        <h4 class="display_1">掃地機器人二代 S5 Max(黑)</h4>
+            <ul class="compare_card_list">
+                <li class="compare_card">
+                    <div class="card_title row">
+                        <div class="title_wrap">
+                            <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
+                            <h4 class="display_1">掃地機器人二代 S5 Max(黑)</h4>
+                        </div>
+                        <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
                     </div>
-                    <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
-                </div>
-                <div class="outerwrap">
-                    <!-------- 小卡 (web_only) -------->
-                    <div class="itemcard">
-                        <a href="#">
-                            <img src="./img_prod_thumbnail/0302.png" alt="">
-                        </a>
+                    <div class="outerwrap">
+                        <!-------- 小卡 (web_only) -------->
+                        <div class="itemcard">
+                            <a href="#">
+                                <img src="./img_prod_thumbnail/0302.png" alt="">
+                            </a>
+                        </div>
+                        <!-------- 雷達圖 (web_only) -------->
+                        <div class="card_radar">
+                            <div id="chart"></div>
+                        </div>
+                        <div class="icon_wrap">
+                            <a href="#" class="compare">
+                                <img src="./img/icon_saved.svg" alt="">
+                                <span class="display_title_2">加入喜好清單</span>
+                            </a>
+                            <a href="#" class="shopping-cart">
+                                <img src="./img/icon_shopping-cart.svg" alt="">
+                                <span class="display_title_2">加入購物車</span>
+                            </a>
+                        </div>
                     </div>
-                    <!-------- 雷達圖 (web_only) -------->
-                    <div class="card_radar">
-                        <div id="chart"></div>
-                    </div>
-                    <div class="icon_wrap">
-                        <a href="#" class="compare">
-                            <img src="./img/icon_saved.svg" alt="">
-                            <span class="display_title_2">加入喜好清單</span>
-                        </a>
-                        <a href="#" class="shopping-cart">
-                            <img src="./img/icon_shopping-cart.svg" alt="">
-                            <span class="display_title_2">加入購物車</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
 
         <!-------- 商品選擇區 -------->
@@ -534,14 +536,8 @@
             <p>(您加入比較清單的商品)</p>
         </div>
         <div class="select_area">
+
             <div class="img_area">
-                <div class="plus put_svg">
-                    haha
-                    <a href="">
-                        <img class="img9" src="img/icon_compare-list.svg" alt="">
-                    </a>
-                    </li>
-                </div>
                 <ul class="img_wrap" id="left_card">
                     <li data-id="1.1" data-price='100'><a href=""><img class="img1" src="./img_prod_thumbnail/0301.png"
                                 alt=""></a>
@@ -558,6 +554,12 @@
                     <li data-id="1.7"><a href=""><img class="img1" src="./img_prod_thumbnail/0310.png" alt=""></a></li>
                     <li data-id="1.8"><a href=""><img class="img1" src="./img_prod_thumbnail/0312.png" alt=""></a></li>
                 </ul>
+            </div>
+            <div class="plus">
+                <a href="">
+                    <img class="img9" src="img/icon_compare-list.svg" alt="">
+                </a>
+                </li>
             </div>
             <button class="select_left_arrow_area">
                 <i class="fas fa-chevron-left"></i>
@@ -903,11 +905,11 @@
                 step: 1,
                 title: "",
                 values: {
-                    "hello": 4,
-                    "world": 3.5,
-                    "C++": 2.5,
-                    "Problem Solving": 1,
-                    "PHP": 3.5,
+                    "rate_E_name": 4,
+                    "rate_D_named": 3.5,
+                    "rate_C_name": 2.5,
+                    "rate_B_name": 1,
+                    "rate_A_name": 3.5,
                 },
                 showAxisLabels: true
             });

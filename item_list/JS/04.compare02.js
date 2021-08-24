@@ -71,3 +71,19 @@ $(function () {
     $("#left_card, #right_card, #middle2_card, #middle_card").disableSelection();
 
 });
+
+// ------------------------ 換卡片 ------------------------
+
+// var $card = $('.card');
+// var lastCard = $(".card-list .card").length - 1;
+
+// $(this).click(function () {
+//     var prependList = function () {
+//         if ($('.card').hasClass('activeNow')) {
+//             var $slicedCard = $('.card').slice(lastCard).removeClass('transformThis activeNow');
+//             $('ul').prepend($slicedCard);
+//         }
+//     }
+//     $('li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
+//     setTimeout(function () { prependList(); }, 150);
+// });
