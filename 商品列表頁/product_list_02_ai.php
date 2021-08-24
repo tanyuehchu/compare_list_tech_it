@@ -45,6 +45,7 @@
     <script src="JS/custom.js"></script>
 
 
+
     <style>
         * {
             /* outline: 1px solid red; */
@@ -99,7 +100,7 @@
 
                     <!-- 比較清單 -->
                     <div class="hd_icon_link i1">
-                        <a href="#">
+                        <a href="compare.php">
                             <!-- <img src="./img/icon_compare-list.svg" alt=""> -->
                             <svg class="svg_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.51 37.51">
                                 <defs>

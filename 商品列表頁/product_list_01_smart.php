@@ -39,19 +39,6 @@
     <link rel="stylesheet" href="./CSS/product_list.css">
 
 
-
-    <!-- JS link ----------------------------------->
-    <script src="JS/1.header.js"></script>
-    <script src="JS/custom.js"></script>
-
-
-    <style>
-        * {
-            /* outline: 1px solid red; */
-        }
-    </style>
-
-
 </head>
 
 <body class="bg-light">
@@ -99,7 +86,7 @@
 
                     <!-- 比較清單 -->
                     <div class="hd_icon_link i1">
-                        <a href="#">
+                        <a href="compare.php">
                             <!-- <img src="./img/icon_compare-list.svg" alt=""> -->
                             <svg class="svg_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.51 37.51">
                                 <defs>
@@ -1248,6 +1235,10 @@
         });
     </script>
 
+
+    <!-- JS link ----------------------------------->
+    <script src="JS/1.header.js"></script>
+    <script src="JS/custom.js"></script>
 </body>
 
 </html>
