@@ -445,6 +445,7 @@ if (!isset($_SESSION['data_compare'])) {
     <div class="wrap">
         <div class="cate_area_title">
             <h3 class="display_title">商品種類</h3>
+            <p>(請選擇想比較的商品類別)</p>
         </div>
         <!-------- mob版 類別資料夾-------->
         <div class="cate_area">
@@ -467,21 +468,28 @@ if (!isset($_SESSION['data_compare'])) {
                     <?php
                     $number = 0;
                     if (isset($_SESSION['data_compare']) && count($_SESSION['data_compare']) > 0) {
+                        $cateIDArray = [];
                         foreach ($_SESSION['data_compare'] as $key => $obj1) {
                             $sql = "SELECT `prod_id`, `cate_name`,`categories`.`cate_id` 
                                     FROM `products` 
                                     INNER JOIN `categories` 
                                     ON `products`.`cate_id`=`categories`.`cate_id`
-                                    WHERE `prod_id` = {$obj1['prod_id']}
-                                    GROUP BY `products`.`cate_id`;";
-                            $number++;
+                                    WHERE `prod_id` = {$obj1['prod_id']};";
+
                             $arr = $pdo->query($sql)->fetchAll();
                             foreach ($arr as $obj2) {
+                                if (in_array($obj2['cate_id'], $cateIDArray)) {
+                                    // echo "The 'first' element is in the array";
+
+                                } else {
+                                    $number++;
+                                    $cateIDArray[] = $obj2['cate_id'];
 
                     ?>
-                                <li><a class="folder_<?= $number ?>" href="compare.php?prod_id=<?= $obj2['prod_id'] ?>&cate_id=<?= $obj2['cate_id'] ?>"><?= $obj2['cate_name'] ?></a></li>
+                                    <li><a class="folder_<?= $number ?>" href="compare.php?cate_id=<?= $obj2['cate_id'] ?>"><?= $obj2['cate_name'] ?></a></li>
 
                     <?php
+                                }
                             }
                         }
                     }
@@ -506,8 +514,8 @@ if (!isset($_SESSION['data_compare'])) {
                 $arr = $pdo->query($sql)->fetchAll();
                 foreach ($arr as $obj) {
             ?>
-                    <h3>01 <?= $obj['cate_name'] ?></h3>
-                    <p>(您放入比較清單的商品)</p>
+                    <h3><?= $obj['cate_name'] ?></h3>
+                    <p>(您加入比較清單的商品)</p>
             <?php
                 }
             }
@@ -517,13 +525,29 @@ if (!isset($_SESSION['data_compare'])) {
 
             <div class="img_area">
                 <ul class="img_wrap" id="left_card">
-                    <li data-id="1.1" data-price='100'>
-                        <a href="">
-                            <img class="img1" src="./img_prod_thumbnail/0301.png" alt="">
-                        </a>
-
-                    </li>
-                    <li data-id="1.2" data-price='100'><a href=""><img class="img1" src="./img_prod_thumbnail/0305.png" alt=""></a>
+                    <?php
+                    if (isset($_GET['cate_id'])) {
+                        foreach ($_SESSION['data_compare'] as $key => $obj1) {
+                            $sql = "SELECT `prod_name`, `prod_price`,`cate_name`,`prod_thumbnail`,`prod_id`
+                        FROM `products` 
+                        INNER JOIN `categories` 
+                        ON `products`.`cate_id`=`categories`.`cate_id`
+                        WHERE `products` .`prod_id` = {$obj1['prod_id']}
+                        AND `products`.`cate_id`={$_GET['cate_id']};";
+                            $arr = $pdo->query($sql)->fetchAll();
+                            foreach ($arr as $obj2) {
+                    ?>
+                                <li data-id="<?= $obj2['prod_id'] ?>" data-price="<?= $obj2['prod_price'] ?>">
+                                    <a href="#">
+                                        <img class="img1" src="./img_prod_thumbnail/<?= $obj2['prod_thumbnail'] ?>" alt="">
+                                    </a>
+                                </li>
+                    <?php
+                            }
+                        }
+                    }
+                    ?>
+                    <!-- <li data-id="305" data-price='100'><a href=""><img class="img1" src="./img_prod_thumbnail/0305.png" alt=""></a>
                     </li>
                     <li data-id="1.3" data-price='100'><a href=""><img class="img1" src="./img_prod_thumbnail/0307.png" alt=""></a>
                     </li>
@@ -531,7 +555,7 @@ if (!isset($_SESSION['data_compare'])) {
                     <li data-id="1.5"><a href=""><img class="img1" src="./img_prod_thumbnail/0302.png" alt=""></a></li>
                     <li data-id="1.6"><a href=""><img class="img1" src="./img_prod_thumbnail/0306.png" alt=""></a></li>
                     <li data-id="1.7"><a href=""><img class="img1" src="./img_prod_thumbnail/0310.png" alt=""></a></li>
-                    <li data-id="1.8"><a href=""><img class="img1" src="./img_prod_thumbnail/0312.png" alt=""></a></li>
+                    <li data-id="1.8"><a href=""><img class="img1" src="./img_prod_thumbnail/0312.png" alt=""></a></li> -->
                 </ul>
             </div>
             <div class="plus d-none d-md-block">
@@ -583,29 +607,39 @@ if (!isset($_SESSION['data_compare'])) {
             ON `products`.`cate_id`=`rate_item`.`cate_id`                                 
             WHERE `products`.`prod_id` = {$_GET['prod_id']};";
             $arr = $pdo->query($sql)->fetchAll();
-            $strobjA = "{$arr[0]['rate_A_name']}";
-            $strobjB = "{$arr[0]['rate_B_name']}";
-            $strobjC = "{$arr[0]['rate_C_name']}";
-            $strobjD = "{$arr[0]['rate_D_name']}";
-            $strobjE = "{$arr[0]['rate_E_name']}";
-            $scoreA = "{$arr[0]['rate_A_score']}";
-            $scoreB = "{$arr[0]['rate_B_score']}";
-            $scoreC = "{$arr[0]['rate_C_score']}";
-            $scoreD = "{$arr[0]['rate_D_score']}";
-            $scoreE = "{$arr[0]['rate_E_score']}";
+
+            if (count($arr) > 0) {
+                $strobjA = "{$arr[0]['rate_A_name']}";
+                $strobjB = "{$arr[0]['rate_B_name']}";
+                $strobjC = "{$arr[0]['rate_C_name']}";
+                $strobjD = "{$arr[0]['rate_D_name']}";
+                $strobjE = "{$arr[0]['rate_E_name']}";
+                $scoreA = "{$arr[0]['rate_A_score']}";
+                $scoreB = "{$arr[0]['rate_B_score']}";
+                $scoreC = "{$arr[0]['rate_C_score']}";
+                $scoreD = "{$arr[0]['rate_D_score']}";
+                $scoreE = "{$arr[0]['rate_E_score']}";
+            }
+
+
 
             // foreach ($arr as $obj) {
             //     $strobjA[] = "{$obj['order_id']}";
             // }
         }
         ?>
+
+
+
+
+
         <div class="compare_table">
             <div class="box box01 box_pic">item_pic</div>
             <ul class="box box02 box_pic box_pic1" id="right_card" class=""></ul>
             <ul class="box box03 box_pic box_pic2" id="middle_card"></ul>
             <ul class="box box04 box_pic box_pic3" id="middle2_card"></ul>
             <div class="box box01">item1</div>
-            <div class="box box02"><?= $strobjA ?></div>
+            <div class="box box02">123</div>
             <div class="box box03">value2-1</div>
             <div class="box box04 best">value3-1</div>
             <div class="box box01">item2</div>
@@ -647,7 +681,7 @@ if (!isset($_SESSION['data_compare'])) {
 
         <!-------- 快速比較區 (web_only) -------->
         <div class="card_wrap">
-            <h3 class="display_title">快速比較<small> (僅提供站內資料)</small></h3>
+
             <?php
             if (isset($_GET['prod_id'])) {
                 $sql = "SELECT `prod_name`, `prod_id`, `prod_price`,`brand_name`,`prod_thumbnail`
@@ -659,6 +693,7 @@ if (!isset($_SESSION['data_compare'])) {
                 foreach ($arr as $obj) {
             ?>
                     <li class="compare_card">
+                        <h3 class="display_title">快速比較<small> (僅提供站內資料)</small></h3>
                         <!-- 上半卡片 -->
                         <div class="card_title row">
                             <!-- 商品資訊 -->
@@ -699,74 +734,13 @@ if (!isset($_SESSION['data_compare'])) {
                 }
             }
             ?>
-            <button class="cate_wrap_left_arrow_area">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="cate_wrap_right_arrow_area">
+            <button class="fixed_left_arrow_area">
                 <i class="fas fa-chevron-right"></i>
             </button>
-            <!-- <li class="compare_card ori_card_2">
-                    <div class="card_title row">
-                        <div class="title_wrap">
-                            <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
-                            <h4 class="display_1">掃地機器人二代 S5 Max(黑)</h4>
-                        </div>
-                        <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
-                    </div>
-                    <div class="outerwrap">
-                        -------- 小卡 (web_only) --------
-                        <div class="itemcard">
-                            <a href="#">
-                                <img src="./img_prod_thumbnail/0302.png" alt="">
-                            </a>
-                        </div>
-                        -------- 雷達圖 (web_only) -------
-                        <div class="card_radar">
-                            <div id="chart1"></div>
-                        </div>
-                        <div class="icon_wrap">
-                            <a href="#" class="compare">
-                                <img src="./img/icon_saved.svg" alt="">
-                                <span class="display_title_2">加入喜好清單</span>
-                            </a>
-                            <a href="#" class="shopping-cart">
-                                <img src="./img/icon_shopping-cart.svg" alt="">
-                                <span class="display_title_2">加入購物車</span>
-                            </a>
-                        </div>
-                    </div>
-                </li> -->
-            <!-- <li class="compare_card ori_card_3">
-                    <div class="card_title row">
-                        <div class="title_wrap">
-                            <h4 class="display_1 brand_name">Roborock 石頭科技</h4>
-                            <h4 class="display_1">掃地機器人二代 S5 Max(黑)</h4>
-                        </div>
-                        <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
-                    </div>
-                    <div class="outerwrap">
-                        -------- 小卡 (web_only) --------
-                        <div class="itemcard">
-                            <a href="#">
-                                <img src="./img_prod_thumbnail/0302.png" alt="">
-                            </a>
-                        </div>
-                        -------- 雷達圖 (web_only) --------
-                        <div class="card_radar">
-                            <div id="chart"></div>
-                        </div>
-                        <div class="icon_wrap">
-                            <a href="#" class="compare">
-                                <img src="./img/icon_saved.svg" alt="">
-                                <span class="display_title_2">加入喜好清單</span>
-                            </a>
-                            <a href="#" class="shopping-cart">
-                                <img src="./img/icon_shopping-cart.svg" alt="">
-                                <span class="display_title_2">加入購物車</span>
-                            </a>
-                        </div>
-                    </div>
-                </li> -->
+            <button class="fixed_right_arrow_area">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
 
         </div>
 
@@ -1046,10 +1020,10 @@ if (!isset($_SESSION['data_compare'])) {
 
 
 
-    <!-------- Radar Chart -------->
+    <!-------- LLink: Radar Chart -------->
     <script src="./JS/04.radar.js" type="text/javascript"></script>
 
-
+    <!-------- Data: Radar Chart -------->
     <script>
         $(function() {
             $('#chart1').radarChart({
@@ -1066,11 +1040,41 @@ if (!isset($_SESSION['data_compare'])) {
                 showAxisLabels: true
             });
         });
+
+        $('.card_radar').click(function() {
+
+            $.post("product_info_api.php", {
+                prod_id: 301
+            }, function(obj) {
+                console.log(obj.result);
+                console.log('result');
+
+                $('#chart1').html('');
+
+                $('#chart1').radarChart({
+                    size: [500, 400],
+                    step: 1,
+                    title: '',
+                    values: {
+                        '<?= $strobjA ?>': 1,
+                        '<?= $strobjB ?>': 1,
+                        '<?= $strobjC ?>': 1,
+                        '<?= $strobjD ?>': 5,
+                        '<?= $strobjE ?>': 1,
+                    },
+                    showAxisLabels: true
+                });
+            }, "json");
+
+
+
+
+        })
     </script>
 
 
-    <!--  -->
-    <script src="JS/04.compare02.js"></script>
+
+    <!-- <script src="JS/04.compare03.js"></script> -->
 
     <!-- <script>
         var $card = $('.compare_card');
@@ -1094,6 +1098,164 @@ if (!isset($_SESSION['data_compare'])) {
             setTimeout(function () { prependList(); }, 200);
         });
     </script> -->
+
+    <script>
+        //----------------------- 拖曳效果 -----------------------
+        var saveDragId_1 = '';
+        var saveDragHtml_1 = '';
+        var saveDragId_2 = '';
+        var saveDragHtml_2 = '';
+        var saveDragId_3 = '';
+        var saveDragHtml_3 = '';
+
+        $(function() {
+
+
+            $('ul#left_card').sortable({
+                connectWith: "ul#right_card, ul#middle_card, ul#middle2_card",
+            });
+
+            $('ul#right_card').sortable({
+                connectWith: "ul#left_card",
+                update: function(event, ui) {
+                    let _ui = $(ui.item[0]);
+                    // console.log(_ui.attr('data-price'));
+                    // alert(ui.item[0].getAttribute('data-price'));
+
+                    if (saveDragHtml_1 == '') {
+                        saveDragId_1 = ui.item[0].dataset.id;
+                        saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+
+                    } else {
+                        $('ul#right_card').find(`li[data-id="${saveDragId_1}"]`).remove();
+                        $('ul#left_card').append(saveDragHtml_1);
+                        saveDragId_1 = ui.item[0].dataset.id;
+                        saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    }
+                    console.log('hi');
+
+
+
+                    // 規格放進表格
+                    $.post("product_info_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj) {
+                        console.log(obj.result);
+                        console.log('result');
+
+                        let prod_info = obj.result[0];
+
+                        $('.box02').eq(1).text(prod_info.prod_name);
+                        $('.box02').eq(2).text(prod_info.prod_price);
+                        $('.box02').eq(3).text(prod_info.prod_size);
+                        $('.box02').eq(4).text(prod_info.prod_type);
+                        $('.box02').eq(5).text(prod_info.specific_A);
+                        $('.box02').eq(6).text(prod_info.specific_B);
+                        $('.box02').eq(7).text(prod_info.specific_C);
+                        $('.box02').eq(8).text(prod_info.specific_D);
+                        $('.box02').eq(9).text(prod_info.specific_E);
+                    }, "json");
+
+
+                }
+            });
+            $('ul#middle_card').sortable({
+                connectWith: "ul#left_card",
+                update: function(event, ui) {
+                    let _ui = $(ui.item[0]);
+                    // console.log(_ui.attr('data-price'));
+                    // alert(ui.item[0].getAttribute('data-price'));
+
+                    if (saveDragHtml_2 == '') {
+                        saveDragId_2 = ui.item[0].dataset.id;
+                        saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    } else {
+                        $('ul#middle_card').find(`li[data-id="${saveDragId_2}"]`).remove();
+                        $('ul#left_card').append(saveDragHtml_2);
+                        saveDragId_2 = ui.item[0].dataset.id;
+                        saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    }
+
+                    // 規格放進表格
+                    $.post("product_info_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj) {
+                        console.log(obj.result);
+                        console.log('result');
+
+                        let prod_info = obj.result[0];
+
+                        $('.box03').eq(1).text(prod_info.prod_name);
+                        $('.box03').eq(2).text(prod_info.prod_price);
+                        $('.box03').eq(3).text(prod_info.prod_size);
+                    }, "json");
+                }
+            });
+            $('ul#middle2_card').sortable({
+                connectWith: "ul#left_card",
+                update: function(event, ui) {
+                    let _ui = $(ui.item[0]);
+                    // console.log(_ui.attr('data-price'));
+                    // alert(ui.item[0].getAttribute('data-price'));
+
+                    if (saveDragHtml_3 == '') {
+                        saveDragId_3 = ui.item[0].dataset.id;
+                        saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    } else {
+                        $('ul#middle2_card').find(`li[data-id="${saveDragId_3}"]`).remove();
+                        $('ul#left_card').append(saveDragHtml_3);
+                        saveDragId_3 = ui.item[0].dataset.id;
+                        saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    }
+
+
+
+                    // 規格放進表格
+                    $.post("product_info_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj) {
+                        console.log(obj.result);
+                        console.log('result');
+
+                        let prod_info = obj.result[0];
+
+                        $('.box04').eq(1).text(prod_info.prod_name);
+                        $('.box04').eq(2).text(prod_info.prod_price);
+                        $('.box04').eq(3).text(prod_info.prod_size);
+                    }, "json");
+                }
+            });
+
+            $("#left_card, #right_card, #middle2_card, #middle_card").disableSelection();
+
+        });
+
+
+
+        // ------------------------ 雷達卡片 ------------------------
+        $('.fixed_left_arrow_area').hide();
+        // 卡片收合
+        $('.fixed_right_arrow_area').click(function(event) {
+            event.preventDefault();
+            setTimeout(function() {
+                $('.fixed_right_arrow_area').hide();
+            }, 600);
+            // $(this).delay(10000).hide();
+            setTimeout(function() {
+                $('.fixed_left_arrow_area').show();
+            }, 600);
+            $('.card_wrap').css('width', '30px');
+        })
+        // 卡片展開
+        $('.fixed_left_arrow_area').click(function(event) {
+            event.preventDefault();
+            $(this).hide();
+            $('.fixed_right_arrow_area').show();
+            $('.card_wrap').css('width', '70vw');
+
+        })
+    </script>
+
 </body>
 
 </html>

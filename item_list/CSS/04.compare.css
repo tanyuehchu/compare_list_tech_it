@@ -1,3 +1,11 @@
+/* root rule */
+ :root{
+    --button-inner:inset 0px 5px 8px #dededea3;
+    --button-outer:5px 5px 15px #bebebeab;
+    --grey-text:#7B7B7B;
+    --main-orange:#FA8873;
+    --main-purple:#5D5D71;
+  }
 /* font rule */
 .display_1{
     font-size: 1.8rem;
@@ -49,7 +57,9 @@ ul{
 
 .cate_area_title {
     display: flex;
+    flex-direction: column;
     justify-content:center;
+    align-items: center;
     margin-top:10% ;
 }
 .cate_area_title h3{
@@ -57,8 +67,18 @@ ul{
     letter-spacing: 4px;
     font-weight:700;
     line-height: 1rem;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
+.cate_area_title p{
+    font-size: .8rem;
+    color:#9b9b9b;
+    letter-spacing: 2px;
+    font-weight: 300;
+    line-height: 1.5rem;
+    margin-bottom: 0;
+    font-family: "Noto Sans";
+}
+
 .cate_area{
     width: 75%;
     margin: 0 auto;
@@ -126,6 +146,30 @@ ul li a.folder_9::before{
     content: "09";
     margin-right: 12px;
 }
+ul li a.folder_10::before{
+    content: "10";
+    margin-right: 12px;
+}
+ul li a.folder_11::before{
+    content: "11";
+    margin-right: 12px;
+}
+ul li a.folder_12::before{
+    content: "12";
+    margin-right: 12px;
+}
+ul li a.folder_13::before{
+    content: "13";
+    margin-right: 12px;
+}
+ul li a.folder_14::before{
+    content: "14";
+    margin-right: 12px;
+}
+ul li a.folder_15::before{
+    content: "15";
+    margin-right: 12px;
+}
 /* web版 類別資料夾 */
 .cate_wrap{
     display: none;
@@ -139,7 +183,7 @@ ul li a.folder_9::before{
     flex-direction: column;
     justify-content:center;
     align-items: center;
-    margin-top:9% ;
+    margin-top:3% ;
     /* margin-top:3% ; */
 }
 .select_area_title h3{
@@ -147,7 +191,7 @@ ul li a.folder_9::before{
     letter-spacing: 4px;
     font-weight: 700;
     line-height: 1rem;
-    margin-bottom: 12px;
+    margin-bottom: 4px;
     font-family: "Noto Sans";
 }
 .select_area_title p{
@@ -167,7 +211,7 @@ ul.slider_dots{
     justify-content: center;
     margin: 0 auto;
     margin-top: 0%;
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     padding: 0;
     /* transform: translateX(-5%);
     transition: .5s; */
@@ -184,16 +228,16 @@ ul.slider_dots .dots {
     display: flex;
     align-items: center;
     width: 90vw;
-    height: 15vh;
+    height: 12vh;
     margin: 0 auto;
-    margin-top: 8%;
-    margin-bottom: 4%;
+    margin-top: 2%;
+    margin-bottom: 1%;
     position: relative;
 }
 .select_area .img_area{
     display: flex;
     width: calc(90vw - 60px);
-    height: 100%;
+    height: 12vh;
     margin: 0 auto;
     overflow-y: hidden;
     overflow-x: scroll;
@@ -212,28 +256,41 @@ ul.slider_dots .dots {
     list-style: none;
     display: flex;
     width: calc(240vw - 180px);
-    height: 100%;
+    height: 12vh;
     padding-left: 0;
     margin-bottom: 0;
 
 }
 .select_area ul.img_wrap li{
     /* outline: 1px solid rgb(227, 255, 65); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: calc(30vw - 20px);
-    height: 100%;
-    padding-left:8px ;
-    padding-right:8px ;
+    height: 12vh;
+    /* padding-left:8px ;
+    padding-right:8px ; */
 }
 
+.select_area ul.img_wrap li a{
+    /* outline: 1px solid rgb(198, 255, 65); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 12vh;
+}
 
 .select_area ul.img_wrap li img{
-    width: 100%;
-    height: 100%;
+    /* outline: 1px solid rgb(26, 153, 75); */
+    width: 90%;
+    height: 90%;
     object-fit:contain;
 }
 #right_card img, #middle_card img, #middle2_card img{
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
     object-fit: contain;
 }
 
@@ -251,6 +308,7 @@ ul.slider_dots .dots {
 }
 .select_left_arrow_area,
         .select_right_arrow_area {
+            /* outline: 1px solid pink; */
             position: absolute;
             top: 0;
             bottom: 0;
@@ -258,15 +316,17 @@ ul.slider_dots .dots {
             background-color: rgb(80, 80, 80);
             /* opacity: .1; */
             /* cursor: pointer; */
+            margin: 0;
+            
         }
 
-        .select_left_arrow_area {
-            left: 0;
-        }
+.select_left_arrow_area {
+    left: 0;
+}
 
-        .select_right_arrow_area {
-            right: 0;
-        }
+.select_right_arrow_area {
+     right: 0;
+}
 
         .fas {
             color: #dadada;
@@ -276,7 +336,7 @@ ul.slider_dots .dots {
         .compare_table_title {
             display: flex;
             justify-content:center;
-            margin-top:12% ;
+            margin-top:6% ;
             margin-bottom:4% ;
         }
         .compare_table_title h3{        
@@ -310,7 +370,7 @@ ul.slider_dots .dots {
 
         .compare_table .box_pic{
             /* outline: 1px solid red; */
-            line-height: 7.5rem;
+            line-height: 4rem;
             border-top: 1px solid #ccc;
             padding: 2rem;
         }
@@ -338,7 +398,11 @@ ul.slider_dots .dots {
                 line-height: 2rem;
                 margin-bottom: 12px;
             }
-
+            .cate_area_title p{
+                font-size: 1.4rem;
+                line-height:2.2rem;
+            }
+            
         /* -------- mob版 類別資料夾--------- */
             .cate_area{
                 display: none;
@@ -381,8 +445,8 @@ ul.slider_dots .dots {
                 padding-right:8px ;
                 border-bottom: 1px solid #E8E8E8;
                 margin-top: 12px;
-                margin-right: 2.5%;
-                margin-left: 2.5%;
+                /* margin-right: 2.5%;
+                margin-left: 2.5%; */
                 text-align: center;         
             }
             .cate_area_web ul li a{
@@ -419,119 +483,99 @@ ul.slider_dots .dots {
             }
 
             /* -------- 快速比較區 (web_only) -------- */
-            /* animation */
-            
-
-            /* 主要的卡 */
-            .compare_card_list{
-                padding: 0;
-                margin: 0%;
-                position: relative;
-            }
-
-            .compare_card_list>li{
-                list-style: none;
-                position: absolute;
-                top: 0%;
-                transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
-            }
-            .compare_card_list .ori_card_1{
-                left: 0;
-                z-index:5;
-            }
-            .compare_card_list .ori_card_2{
-                left: 5%;
-                background-color: rgba(201, 201, 201, 0.445);
-                opacity: .5;
-                z-index: 2;
-            }
-            .compare_card_list .ori_card_3{
-                left: 10%;
-                background-color: rgba(214, 214, 214, 0.377);
-                opacity: .3;
-                z-index: 1;
-            }
-
-            .compare_card{
-                width: 90%;
-                background-color: white;
-                /* padding: 2rem 0 0 0rem; */
-                border-radius: 0 6rem 6rem 0;
-            }
-
-
             .card_wrap{
-                width: 90vw;
-                /* 先寫死 */
-                min-height: 80vh; 
+                /* outline: 2px solid rgb(255, 230, 0); */
+                position: fixed;
+                bottom: 20px;
+                left:0;
+                z-index: 100;
+                width: 70vw;
+                height: 50vh; 
                 display: block;
-                background: linear-gradient(to bottom, #cfe2e654, #ffffff00); 
-                border-radius: 10.63rem 10.63rem 0 0;
+                background: linear-gradient(to bottom, #cfe2e675, #ffffff00); 
+                /* border-radius: 0 10.63rem 10.63rem 0; */
+                border-radius: 0 6rem 6rem 0;
                 margin: 0 auto;
                 box-shadow: 0px -15px 30px #c5c5c53d;
                 overflow: hidden;
+                transition: 0.6s;
             }         
             .card_wrap h3{
-                /* padding-top: 1.5%; */
+                /* outline: 2px solid rgb(255, 60, 0); */
+                padding-top: 1.5%;
                 width: 100%;
                 text-align: center;
                 font-size: 1.876rem;
                 line-height: 2rem;
-                padding-top: 1.75rem;
-                padding-bottom: 1.75rem;
                 margin: 0 auto;
                 margin-bottom: 0;
                 font-weight: 700;
             }
-            .card_wrap .outerwrap{
-                /* outline: 5px solid blue; */
-                width: 100%;
-                height: calc(60vh - 5.5rem);
-                display: flex;
-                justify-content: space-around;
-            }
 
-            .card_title{
+
+            li.compare_card{
+                /* outline: 1px solid rgb(0, 255, 21); */
+                list-style: none;
+                transition: all 0.5s cubic-bezier(0.5, 0, 0, 1);
+                width: calc(70vw - 30px);
+                height:  50vh;
+                background-color: white;
+                /* padding: 2rem 0 0 0rem; */
+                /* border-radius: 0 6rem 6rem 0; */
+            }     
+            .card_wrap  .card_title{
+                /* outline: 2px solid red; */
+                width: 100%;
+                height: calc(15vh - 1rem);
                 padding: 2rem 5rem 0;
                 justify-content: space-between;
                 align-items: center;
-                margin: 3rem 0 0 0;
+                margin:0;
+            }
+            .card_wrap .outerwrap{
+                /* outline: 2px solid blue; */
+                width: 100%;
+                height: calc(35vh - 1rem);
+                display: flex;
+                justify-content: space-around;
             }
 
             .card_title a{
                 width: 3rem;
             }
-            .card_title a>img{
+            .card_title a > img{
                 width: 100%;
             }
+            /* 左圖 */
+            .itemcard{
+                width:25%;
+                height:90%;
+            }
 
-            /* -------- 雷達圖 (web_only) -------- */
+            .itemcard  img{
+                /* outline: 1px solid orange; */
+                width: 150%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            /* -------- 雷達圖-------- */
             .card_radar{
                 /* outline: 1px solid red; */
                 width: 100%;
                 height: 100%;
-                /* 字下不來!!!!!!!!!! */
-                position: relative;
             }
-            #chart {
+            #chart1 {
                 text-align: left;
-                margin: 32px auto;
                 background: transparent;
-                transform: scale(1.5);
+                /* transform: scale(1.2); */
+                margin-top: -50px;
+                margin-left: 200px;
               }
-            /* 字下不來!!!!!!! */
-            /* .dvx-chart-legend-group{
-                display: block;
-                position: absolute;
-                bottom: 0;
-                left: 0;
-            }
-            .dvx-chart-legend-group text{
-                letter-spacing: 1px;
-                font-size: 1.2rem;
-            } */
 
-            /* -------- 小卡 (web_only) -------- */
+
+            /* -------- 右邊button -------- */
+            
 
             .icon_wrap{
                 /* background-color: red; */
@@ -556,41 +600,76 @@ ul.slider_dots .dots {
                 margin-right: 15%;
             }
 
-            .itemcard{
-                width:25%;
-                height:90%;
+            /* 收合展開 */
+            .fixed_right_arrow_area,
+            .fixed_left_arrow_area {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 30px;
+                background-color: var(--main-purple);
+                opacity: .9;
+                cursor: pointer;    
+                border: none;
             }
-
-            .itemcard  img{
-                /* outline: 1px solid orange; */
-                width: 150%;
-                height: 100%;
-                object-fit: contain;
+    
+            .fixed_right_arrow_area {
+                right: 0;
+            }
+    
+            .fixed_left_arrow_area {
+                left: 0;
             }
 
             /* -------- 商品選擇區 -------- */
             .select_area{
-                height: 45vh;
-                margin-top: 2%;
+                /* outline: 1px solid red; */
+                height: 30vh;
+                margin-top: 1%;
+                
+            }
+            .select_area .img_area{
+                /* outline: 1px solid rgb(25, 0, 255); */
+                height: 30vh;
+                
+            }
+            .select_area .img_area ul.img_wrap{
+                height: 30vh;
             }
 
+            .select_area ul.img_wrap li{
+                /* outline: 1px solid rgb(227, 255, 65); */
+                width: calc(26vw - 20px);
+                height: 30vh;
+
+            }
+
+            .select_area ul.img_wrap li a{
+                /* outline: 2px solid rgb(255, 65, 65); */
+                height: 30vh;
+            }
+            .select_area ul.img_wrap li svg{
+                /* outline: 1px solid rgb(121, 255, 121); */
+                width: 42%;
+                height: auto;
+            }
             .select_area_title{
-                margin-top:7% ;
+                margin-top:2% ;
             }
 
             .select_area_title h3{
                 font-size: 1.876rem;
                 line-height: 2rem;
-                margin-bottom: 28px;
+                margin-bottom: 12px;
             }
 
             .select_area_title p{
-                font-size: 1.6rem;
+                font-size: 1.4rem;
                 line-height:2.2rem;
             }
             ul.slider_dots{
                 margin-top: 0%;
-                margin-bottom: 6%;
+                margin-bottom: 2%;
             }
 
             ul.slider_dots .dots{
@@ -598,28 +677,17 @@ ul.slider_dots .dots {
                 height: 8px;
                 margin-right: 20px;
             }
-
-            .select_area ul.img_wrap li{
-                /* outline: 1px solid rgb(227, 255, 65); */
-                width: calc(26vw - 20px);
-            }
-
-            .select_area ul.img_wrap li svg{
-                /* outline: 1px solid rgb(121, 255, 121); */
-                width: 42%;
-                height: auto;
-            }
             /* -------- 比較表格 -------- */
 
             .compare_table_title{
-                margin-top: 8%;
-                margin-bottom: 4%;
+                margin-top: 3%;
+                margin-bottom: 1%;
             }
             
             .compare_table_title h3{        
                 font-size: 1.876rem;
                 line-height: 2rem;
-                margin-bottom: 28px;    
+                margin-bottom:0;    
             }
             .compare_table_title h3.web{
                 display: block;
@@ -654,7 +722,7 @@ ul.slider_dots .dots {
             .compare_table .box_pic{
                 /* outline: 1px solid red; */
                 border-top: 1px solid #ccc;
-                line-height: 24rem;
+                line-height: 16rem;
                 margin-bottom: 0;
                 padding: 0rem;
             }
@@ -677,43 +745,7 @@ ul.slider_dots .dots {
              
           }
 
-          .container{ 
-            display: flex;
-        }
-        .card{
-            margin: 30px;
-            padding:20px;
-            width: 200px;
-            height:350px;
-            color:white;
-            background-color: rgb(255, 253, 240);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .card div{
-            margin:10px;
-            padding:10px;
-            width:50px;
-            height:50px;
-            padding:10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color:white;
-            background-color: rgb(13, 66, 64);
-        }
-        .ghost {
-            opacity: 0.4;
-        }
-        .list-group {
-            margin: 20px;
-        }
-        button {
-            margin: 40px 20px;
-            float: right;
-        }
+
 /* *{
     outline: 1px solid red;
 } */

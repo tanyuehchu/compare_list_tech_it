@@ -1239,6 +1239,11 @@
     <!-- JS link ----------------------------------->
     <script src="JS/1.header.js"></script>
     <script src="JS/custom.js"></script>
+
+
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <!-- <script src="JS/alert.js"></script> -->
 </body>
 
 </html>
