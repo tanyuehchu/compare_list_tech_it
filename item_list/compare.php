@@ -986,23 +986,33 @@ if (!isset($_SESSION['data_compare'])) {
             $.post("prod_Radar_api.php", {
                 prod_id: prodID
             }, function(obj3) {
+                
                 console.log(obj3.result);
                 strA_name = obj3.result[0].rate_A_name;
+                strA_score = obj3.result[0].rate_A_score;
                 strB_name = obj3.result[0].rate_B_name;
                 strC_name = obj3.result[0].rate_C_name;
                 strD_name = obj3.result[0].rate_D_name;
                 strE_name = obj3.result[0].rate_E_name;
                 console.log(strB_name);
+                console.log(strA_score);
+
 
                 // 清空 Radar圖
                 $('#chart1').html('');
+                // var aaa = JSON.stringify(obj3);
+                // console.log(aaa);  
+                // var bbb = JSON.parse(aaa)
+                // console.log(bbb);
+                // newStrA_name = bbb.result[0].rate_A_name;
 
+                console.log(`${strA_name}:${strA_score}`);
                 $('#chart1').radarChart({
                     size: [500, 400],
                     step: 1,
                     title: '',
                     values: {
-                        strA_name: 1,
+                        strA_name : strA_score,
                         '$strB_name': 1,
                         '$strC_name': 1,
                         '$strD_name': 5,
@@ -1011,6 +1021,7 @@ if (!isset($_SESSION['data_compare'])) {
                     showAxisLabels: true
                 });
             }, "json");
+
         })
     </script>
 
