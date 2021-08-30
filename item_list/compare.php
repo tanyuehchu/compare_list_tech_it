@@ -486,7 +486,7 @@ if (!isset($_SESSION['data_compare'])) {
                                     $cateIDArray[] = $obj2['cate_id'];
 
                     ?>
-                                    <li><a class="folder_<?= $number ?>" href="compare.php?cate_id=<?= $obj2['cate_id'] ?>"><?= $obj2['cate_name'] ?></a></li>
+                                    <li><a class="folder_<?= $number ?>" href="compare.php?cate_id=<?= $obj2['cate_id'] ?>&prod_id=<?= $obj2['prod_id'] ?>"><?= $obj2['cate_name'] ?></a></li>
 
                     <?php
                                 }
@@ -628,56 +628,62 @@ if (!isset($_SESSION['data_compare'])) {
             // }
         }
         ?>
-
-
-
-
-
-        <div class="compare_table">
-            <div class="box box01 box_pic">item_pic</div>
-            <ul class="box box02 box_pic box_pic1" id="right_card" class=""></ul>
-            <ul class="box box03 box_pic box_pic2" id="middle_card"></ul>
-            <ul class="box box04 box_pic box_pic3" id="middle2_card"></ul>
-            <div class="box box01">item1</div>
-            <div class="box box02">123</div>
-            <div class="box box03">value2-1</div>
-            <div class="box box04 best">value3-1</div>
-            <div class="box box01">item2</div>
-            <div class="box box02">value1-2</div>
-            <div class="box box03 best">value2-2</div>
-            <div class="box box04">value3-2</div>
-            <div class="box box01">item3</div>
-            <div class="box box02">value1-3</div>
-            <div class="box box03 best">value2-3</div>
-            <div class="box box04">value3-3</div>
-            <div class="box box01">item4</div>
-            <div class="box box02 best">value1-4</div>
-            <div class="box box03">value2-4</div>
-            <div class="box box04">value3-4</div>
-            <div class="box box01">item5</div>
-            <div class="box box02 best">value1-5</div>
-            <div class="box box03 best">value2-5</div>
-            <div class="box box04">value3-5</div>
-            <div class="box box01">item6</div>
-            <div class="box box02">value1-6</div>
-            <div class="box box03">value2-6</div>
-            <div class="box box04 best">value3-6</div>
-            <div class="box box01">item7</div>
-            <div class="box box02">value1-7</div>
-            <div class="box box03">value2-7</div>
-            <div class="box box04 best">value3-7</div>
-            <div class="box box01">item8</div>
-            <div class="box box02">value1-8</div>
-            <div class="box box03 best">value2-8</div>
-            <div class="box box04">value3-8</div>
-            <div class="box box01">item9</div>
-            <div class="box box02 best">value1-9</div>
-            <div class="box box03">value2-9</div>
-            <div class="box box04 best">
-                <p style="font-size: 60px;"></p>
-            </div>
-        </div>
-
+        <!-- ---------- 取得欄位項目 ---------- -->
+        <?php if (isset($_GET['cate_id'])) {
+            $sql = "SELECT `specific_A` , `specific_B` , `specific_C` , `specific_D` , `specific_E` 
+                    FROM `specification_item`
+                    WHERE `cate_id` = {$_GET['cate_id']}";
+            $arr = $pdo->query($sql)->fetchAll();
+            foreach ($arr as $obj) {
+        ?>
+                <div class="compare_table">
+                    <div class="box box01 box_pic">商品</div>
+                    <ul class="box box02 box_pic box_pic1" id="right_card"></ul>
+                    <ul class="box box03 box_pic box_pic2" id="middle_card"></ul>
+                    <ul class="box box04 box_pic box_pic3" id="middle2_card"></ul>
+                    <div class="box box01">商品名稱</div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01">商品價格</div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01">品牌名稱</div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01">商品型號</div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01"><?= $obj['specific_A'] ?></div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01"><?= $obj['specific_B'] ?></div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01"><?= $obj['specific_C'] ?></div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01"><?= $obj['specific_D'] ?></div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04"></div>
+                    <div class="box box01"><?= $obj['specific_E'] ?></div>
+                    <div class="box box02"></div>
+                    <div class="box box03"></div>
+                    <div class="box box04">
+                        <p style="font-size: 60px;"></p>
+                    </div>
+                </div>
+        <?php
+            }
+        }
+        ?>
 
         <!-------- 快速比較區 (web_only) -------->
         <div class="card_wrap">
@@ -693,7 +699,7 @@ if (!isset($_SESSION['data_compare'])) {
                 foreach ($arr as $obj) {
             ?>
                     <li class="compare_card">
-                        <h3 class="display_title">快速比較<small> (僅提供站內資料)</small></h3>
+                        <h3 class="display_title">快速查看<small> (僅提供站內資料)</small></h3>
                         <!-- 上半卡片 -->
                         <div class="card_title row">
                             <!-- 商品資訊 -->
@@ -1020,219 +1026,39 @@ if (!isset($_SESSION['data_compare'])) {
 
 
 
-    <!-------- LLink: Radar Chart -------->
+    <!-------- Link: Radar Chart -------->
     <script src="./JS/04.radar.js" type="text/javascript"></script>
 
     <!-------- Data: Radar Chart -------->
     <script>
-        $(function() {
-            $('#chart1').radarChart({
-                size: [500, 400],
-                step: 1,
-                title: '',
-                values: {
-                    '<?= $strobjA ?>': <?= $scoreA ?>,
-                    '<?= $strobjB ?>': <?= $scoreB ?>,
-                    '<?= $strobjC ?>': <?= $scoreC ?>,
-                    '<?= $strobjD ?>': <?= $scoreD ?>,
-                    '<?= $strobjE ?>': <?= $scoreE ?>,
-                },
-                showAxisLabels: true
-            });
-        });
+        // $('.img_wrap').on("click", ".img1", function() {
+        //     $.post("product_info_api.php", {
+        //         prod_id: 301
+        //     }, function(obj) {
+        //         console.log(obj.result);
+        //         console.log('result');
 
-        $('.card_radar').click(function() {
+        //         $('#chart1').html('');
 
-            $.post("product_info_api.php", {
-                prod_id: 301
-            }, function(obj) {
-                console.log(obj.result);
-                console.log('result');
-
-                $('#chart1').html('');
-
-                $('#chart1').radarChart({
-                    size: [500, 400],
-                    step: 1,
-                    title: '',
-                    values: {
-                        '<?= $strobjA ?>': 1,
-                        '<?= $strobjB ?>': 1,
-                        '<?= $strobjC ?>': 1,
-                        '<?= $strobjD ?>': 5,
-                        '<?= $strobjE ?>': 1,
-                    },
-                    showAxisLabels: true
-                });
-            }, "json");
-
-
-
-
-        })
+        //         $('#chart1').radarChart({
+        //             size: [500, 400],
+        //             step: 1,
+        //             title: '',
+        //             values: {
+        //                 '': 1,
+        //                 '': 1,
+        //                 '': 1,
+        //                 '': 5,
+        //                 '': 1,
+        //             },
+        //             showAxisLabels: true
+        //         });
+        //     }, "json");
+        // })
     </script>
 
-
-
-    <!-- <script src="JS/04.compare03.js"></script> -->
-
-    <!-- <script>
-        var $card = $('.compare_card');
-        var lastCard = $(".compare_card_list .compare_card").length - 1;
-
-        console.log(lastCard);
-
-        $('.compare_card').click(function () {
-            console.log('click');
-            $(this).addClass('activeNow');
-
-            var prependList = function () {
-                if ($('.compare_card').hasClass('activeNow')) {
-                    console.log('active');
-                    var $slicedCard = $('.compare_card').slice(lastCard).removeClass('transformThis activeNow');
-                    $('.compare_card_list').prepend($slicedCard);
-                    console.log($('.compare_card_list'));
-                }
-            }
-            $('.compare_card > li').last().removeClass('transformPrev').addClass('transformThis').prev().addClass('activeNow');
-            setTimeout(function () { prependList(); }, 200);
-        });
-    </script> -->
-
     <script>
-        //----------------------- 拖曳效果 -----------------------
-        var saveDragId_1 = '';
-        var saveDragHtml_1 = '';
-        var saveDragId_2 = '';
-        var saveDragHtml_2 = '';
-        var saveDragId_3 = '';
-        var saveDragHtml_3 = '';
-
-        $(function() {
-
-
-            $('ul#left_card').sortable({
-                connectWith: "ul#right_card, ul#middle_card, ul#middle2_card",
-            });
-
-            $('ul#right_card').sortable({
-                connectWith: "ul#left_card",
-                update: function(event, ui) {
-                    let _ui = $(ui.item[0]);
-                    // console.log(_ui.attr('data-price'));
-                    // alert(ui.item[0].getAttribute('data-price'));
-
-                    if (saveDragHtml_1 == '') {
-                        saveDragId_1 = ui.item[0].dataset.id;
-                        saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
-
-                    } else {
-                        $('ul#right_card').find(`li[data-id="${saveDragId_1}"]`).remove();
-                        $('ul#left_card').append(saveDragHtml_1);
-                        saveDragId_1 = ui.item[0].dataset.id;
-                        saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
-                    }
-                    console.log('hi');
-
-
-
-                    // 規格放進表格
-                    $.post("product_info_api.php", {
-                        prod_id: ui.item[0].dataset.id
-                    }, function(obj) {
-                        console.log(obj.result);
-                        console.log('result');
-
-                        let prod_info = obj.result[0];
-
-                        $('.box02').eq(1).text(prod_info.prod_name);
-                        $('.box02').eq(2).text(prod_info.prod_price);
-                        $('.box02').eq(3).text(prod_info.prod_size);
-                        $('.box02').eq(4).text(prod_info.prod_type);
-                        $('.box02').eq(5).text(prod_info.specific_A);
-                        $('.box02').eq(6).text(prod_info.specific_B);
-                        $('.box02').eq(7).text(prod_info.specific_C);
-                        $('.box02').eq(8).text(prod_info.specific_D);
-                        $('.box02').eq(9).text(prod_info.specific_E);
-                    }, "json");
-
-
-                }
-            });
-            $('ul#middle_card').sortable({
-                connectWith: "ul#left_card",
-                update: function(event, ui) {
-                    let _ui = $(ui.item[0]);
-                    // console.log(_ui.attr('data-price'));
-                    // alert(ui.item[0].getAttribute('data-price'));
-
-                    if (saveDragHtml_2 == '') {
-                        saveDragId_2 = ui.item[0].dataset.id;
-                        saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
-                    } else {
-                        $('ul#middle_card').find(`li[data-id="${saveDragId_2}"]`).remove();
-                        $('ul#left_card').append(saveDragHtml_2);
-                        saveDragId_2 = ui.item[0].dataset.id;
-                        saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
-                    }
-
-                    // 規格放進表格
-                    $.post("product_info_api.php", {
-                        prod_id: ui.item[0].dataset.id
-                    }, function(obj) {
-                        console.log(obj.result);
-                        console.log('result');
-
-                        let prod_info = obj.result[0];
-
-                        $('.box03').eq(1).text(prod_info.prod_name);
-                        $('.box03').eq(2).text(prod_info.prod_price);
-                        $('.box03').eq(3).text(prod_info.prod_size);
-                    }, "json");
-                }
-            });
-            $('ul#middle2_card').sortable({
-                connectWith: "ul#left_card",
-                update: function(event, ui) {
-                    let _ui = $(ui.item[0]);
-                    // console.log(_ui.attr('data-price'));
-                    // alert(ui.item[0].getAttribute('data-price'));
-
-                    if (saveDragHtml_3 == '') {
-                        saveDragId_3 = ui.item[0].dataset.id;
-                        saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
-                    } else {
-                        $('ul#middle2_card').find(`li[data-id="${saveDragId_3}"]`).remove();
-                        $('ul#left_card').append(saveDragHtml_3);
-                        saveDragId_3 = ui.item[0].dataset.id;
-                        saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
-                    }
-
-
-
-                    // 規格放進表格
-                    $.post("product_info_api.php", {
-                        prod_id: ui.item[0].dataset.id
-                    }, function(obj) {
-                        console.log(obj.result);
-                        console.log('result');
-
-                        let prod_info = obj.result[0];
-
-                        $('.box04').eq(1).text(prod_info.prod_name);
-                        $('.box04').eq(2).text(prod_info.prod_price);
-                        $('.box04').eq(3).text(prod_info.prod_size);
-                    }, "json");
-                }
-            });
-
-            $("#left_card, #right_card, #middle2_card, #middle_card").disableSelection();
-
-        });
-
-
-
-        // ------------------------ 雷達卡片 ------------------------
+        // ------------------------ 雷達卡片 收合展開 ------------------------
         $('.fixed_left_arrow_area').hide();
         // 卡片收合
         $('.fixed_right_arrow_area').click(function(event) {
@@ -1254,6 +1080,198 @@ if (!isset($_SESSION['data_compare'])) {
             $('.card_wrap').css('width', '70vw');
 
         })
+
+        // ------------------------ 雷達卡片 取值 ------------------------
+    </script>
+
+    <!-- <script src="JS/04.compare03.js"></script> -->
+
+    <script>
+        //----------------------- 拖曳效果 -----------------------
+        var saveDragId_1 = '';
+        var saveDragHtml_1 = '';
+        var saveDragId_2 = '';
+        var saveDragHtml_2 = '';
+        var saveDragId_3 = '';
+        var saveDragHtml_3 = '';
+
+        $(function() {
+            $('ul#left_card').sortable({
+                connectWith: "ul#right_card, ul#middle_card, ul#middle2_card",
+            });
+            // ---------- 表格第一欄 ----------
+            $('ul#right_card').sortable({
+                connectWith: "ul#left_card",
+                update: function(event, ui) {
+                    let _ui = $(ui.item[0]);
+                    // console.log(_ui.attr('data-price'));
+                    // alert(ui.item[0].getAttribute('data-price'));
+
+                    if (saveDragHtml_1 == '') {
+                        saveDragId_1 = ui.item[0].dataset.id;
+                        saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+
+                    } else {
+                        $('ul#right_card').find(`li[data-id="${saveDragId_1}"]`).remove();
+                        $('ul#left_card').append(saveDragHtml_1);
+                        saveDragId_1 = ui.item[0].dataset.id;
+                        saveDragHtml_1 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    }
+                    console.log('hi');
+
+
+
+                    // 取得 詳細資訊 放進表格
+                    $.post("prod_info_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj1) {
+                        // console.log(obj2.result);
+                        let prod_info = obj1.result[0];
+                        $('.box02').eq(1).text(prod_info.prod_name);
+                        $('.box02').eq(2).text('NT$ ' + prod_info.prod_price);
+                        $('.box02').eq(3).text(prod_info.brand_name);
+                        $('.box02').eq(4).text(prod_info.prod_type);
+                    }, "json");
+
+                    // 取得 規格表 放進表格
+                    $.post("prod_speci_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj2) {
+                        for (let i = 0; i < obj2.result.length; i++) {
+                            if (obj2.result[i].specific_id == 'A') {
+                                $('.box02').eq(5).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'B') {
+                                $('.box02').eq(6).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'C') {
+                                $('.box02').eq(7).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'D') {
+                                $('.box02').eq(8).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'E') {
+                                $('.box02').eq(9).text(obj2.result[i].specific_content);
+                            }
+                        };
+                    }, "json");
+                }
+            });
+
+            // ---------- 表格第二欄 ----------
+            $('ul#middle_card').sortable({
+                connectWith: "ul#left_card",
+                update: function(event, ui) {
+                    let _ui = $(ui.item[0]);
+                    // console.log(_ui.attr('data-price'));
+                    // alert(ui.item[0].getAttribute('data-price'));
+
+                    if (saveDragHtml_2 == '') {
+                        saveDragId_2 = ui.item[0].dataset.id;
+                        saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    } else {
+                        $('ul#middle_card').find(`li[data-id="${saveDragId_2}"]`).remove();
+                        $('ul#left_card').append(saveDragHtml_2);
+                        saveDragId_2 = ui.item[0].dataset.id;
+                        saveDragHtml_2 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    }
+
+                    // 取得 詳細資訊 放進表格
+                    $.post("prod_info_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj1) {
+                        console.log(obj1.result);
+                        let prod_info = obj1.result[0];
+                        $('.box03').eq(1).text(prod_info.prod_name);
+                        $('.box03').eq(2).text('NT$ ' + prod_info.prod_price);
+                        $('.box03').eq(3).text(prod_info.brand_name);
+                        $('.box03').eq(4).text(prod_info.prod_type);
+                    }, "json");
+
+                    // 取得 規格表 放進表格
+                    $.post("prod_speci_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj2) {
+                        for (let i = 0; i < obj2.result.length; i++) {
+                            if (obj2.result[i].specific_id == 'A') {
+                                $('.box03').eq(5).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'B') {
+                                $('.box03').eq(6).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'C') {
+                                $('.box03').eq(7).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'D') {
+                                $('.box03').eq(8).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'E') {
+                                $('.box03').eq(9).text(obj2.result[i].specific_content);
+                            }
+                        };
+                    }, "json");
+
+                }
+            });
+
+            // ---------- 表格第三欄 ----------
+            $('ul#middle2_card').sortable({
+                connectWith: "ul#left_card",
+                update: function(event, ui) {
+                    let _ui = $(ui.item[0]);
+                    // console.log(_ui.attr('data-price'));
+                    // alert(ui.item[0].getAttribute('data-price'));
+
+                    if (saveDragHtml_3 == '') {
+                        saveDragId_3 = ui.item[0].dataset.id;
+                        saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    } else {
+                        $('ul#middle2_card').find(`li[data-id="${saveDragId_3}"]`).remove();
+                        $('ul#left_card').append(saveDragHtml_3);
+                        saveDragId_3 = ui.item[0].dataset.id;
+                        saveDragHtml_3 = `<li data-id="${ui.item[0].dataset.id}">${ui.item[0].innerHTML}</li>`;
+                    }
+
+
+                    // 取得 詳細資訊 放進表格
+                    $.post("prod_info_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj1) {
+                        console.log(obj1.result);
+                        let prod_info = obj1.result[0];
+                        $('.box04').eq(1).text(prod_info.prod_name);
+                        $('.box04').eq(2).text('NT$ ' + prod_info.prod_price);
+                        $('.box04').eq(3).text(prod_info.brand_name);
+                        $('.box04').eq(4).text(prod_info.prod_type);
+                    }, "json");
+
+                    // 取得 規格表 放進表格
+                    $.post("prod_speci_api.php", {
+                        prod_id: ui.item[0].dataset.id
+                    }, function(obj2) {
+                        console.log(obj2.result);
+                        for (let i = 0; i < obj2.result.length; i++) {
+                            if (obj2.result[i].specific_id == 'A') {
+                                $('.box04').eq(5).text(obj2.result[i].specific_content);
+
+                            } else if (obj2.result[i].specific_id == 'B') {
+                                $('.box04').eq(6).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'C') {
+                                $('.box04').eq(7).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'D') {
+                                $('.box04').eq(8).text(obj2.result[i].specific_content);
+                            } else if (obj2.result[i].specific_id == 'E') {
+                                $('.box04').eq(9).text(obj2.result[i].specific_content);
+                            }
+                        };
+                    }, "json");
+
+                }
+            });
+
+            $("#left_card, #right_card, #middle2_card, #middle_card").disableSelection();
+
+        });
+
+        // 貼best標籤
+        // $(function() {
+        //     let str_box2 = $('.box02').eq(2).text();
+        //     let str_box3 = $('.box03').eq(2).text();
+        //     let str_box4 = $('.box04').eq(2).text();
+        //     console.log(str_box2)
+        // })
     </script>
 
 </body>

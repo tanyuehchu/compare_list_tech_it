@@ -377,7 +377,7 @@ ul.slider_dots .dots {
 
         .compare_table .box_pic1{
             padding: 2rem;
-            background-color: rgba(209, 209, 209, 0.466);
+            /* background-color: rgba(209, 209, 209, 0.466); */
             box-sizing: content-box;
         }
 
