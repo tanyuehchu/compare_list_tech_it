@@ -3,8 +3,8 @@ let lastScroll = 0;
 
 $(window).scroll(function () {
     const nowScroll = $(window).scrollTop();
-    console.log('lastScroll', lastScroll);
-    console.log('nowScroll', nowScroll);
+    // console.log('lastScroll', lastScroll);
+    // console.log('nowScroll', nowScroll);
 
     // 1.判斷使用者往上或往下
     if (lastScroll < nowScroll) {

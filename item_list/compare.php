@@ -991,6 +991,7 @@ if (!isset($_SESSION['data_compare'])) {
             $.post("prod_Radar_api.php", {
                 prod_id: prodID
             }, function(obj3) {
+
                 console.log(obj3.result);
                 // strA_name = obj3.result[0].rate_A_name;
                 // strB_name = obj3.result[0].rate_B_name;
@@ -1016,6 +1017,7 @@ if (!isset($_SESSION['data_compare'])) {
                 objValues[obj3.result[0].rate_D_name] = obj3.result[0].rate_D_score;
                 objValues[obj3.result[0].rate_E_name] = obj3.result[0].rate_E_score;
 
+                console.log(`${strA_name}:${strA_score}`);
                 $('#chart1').radarChart({
                     size: [500, 400],
                     step: 1,
