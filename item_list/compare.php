@@ -976,41 +976,79 @@ if (!isset($_SESSION['data_compare'])) {
             let prodID = img_prodID.attr('data-id');
 
             // 初始
-            let strA_name;
-            strB_name = [];
-            strC_name = [];
-            strD_name = [];
-            strE_name = [];
+            let strA_name = '';
+            let strB_name = '';
+            let strC_name = '';
+            let strD_name = '';
+            let strE_name = '';
+            let strA_score;
+            let strB_score;
+            let strC_score;
+            let strD_score;
+            let strE_score;
 
             // 取值
             $.post("prod_Radar_api.php", {
                 prod_id: prodID
             }, function(obj3) {
                 console.log(obj3.result);
-                strA_name = obj3.result[0].rate_A_name;
-                strB_name = obj3.result[0].rate_B_name;
-                strC_name = obj3.result[0].rate_C_name;
-                strD_name = obj3.result[0].rate_D_name;
-                strE_name = obj3.result[0].rate_E_name;
-                console.log(strB_name);
+                // strA_name = obj3.result[0].rate_A_name;
+                // strB_name = obj3.result[0].rate_B_name;
+                // strC_name = obj3.result[0].rate_C_name;
+                // strD_name = obj3.result[0].rate_D_name;
+                // strE_name = obj3.result[0].rate_E_name;
+
+                strA_score = obj3.result[0].rate_A_score;
+                strB_score = obj3.result[0].rate_B_score;
+                strC_score = obj3.result[0].rate_C_score;
+                strD_score = obj3.result[0].rate_D_score;
+                strE_score = obj3.result[0].rate_E_score;
+
+                console.log(strA_name, strB_name, strC_name, strD_name, strE_name);
+                console.log(strA_score, strB_score, strC_score, strD_score, strE_score);
 
                 // 清空 Radar圖
                 $('#chart1').html('');
+                objValues = {};
+                objValues[obj3.result[0].rate_A_name] = obj3.result[0].rate_A_score;
+                objValues[obj3.result[0].rate_B_name] = obj3.result[0].rate_B_score;
+                objValues[obj3.result[0].rate_C_name] = obj3.result[0].rate_C_score;
+                objValues[obj3.result[0].rate_D_name] = obj3.result[0].rate_D_score;
+                objValues[obj3.result[0].rate_E_name] = obj3.result[0].rate_E_score;
 
                 $('#chart1').radarChart({
                     size: [500, 400],
                     step: 1,
                     title: '',
-                    values: {
-                        strA_name: 1,
-                        '$strB_name': 1,
-                        '$strC_name': 1,
-                        '$strD_name': 5,
-                        '$strE_name': 1,
-                    },
+                    values: objValues,
                     showAxisLabels: true
                 });
             }, "json");
+
+            // 取詳細資訊
+            $.post("prod_info_api.php", {
+                prod_id: prodID
+            }, function(obj1) {
+                console.log(obj1.result);
+                let cardinfo = '';
+                for (let i = 0; i < obj1.result.length; i++) {
+                    cardinfo += ` <h4 class="display_1 brand_name">${obj1.result[i].brand_name}</h4>
+                        <h4 class="display_1">${obj1.result[i].prod_name}</h4>
+                        <h4 class="display_2">NT$ ${obj1.result[i].prod_price}</h4>`
+                };
+                $('.title_wrap').html(cardinfo);
+
+                let cardimg = '';
+                for (let i = 0; i < obj1.result.length; i++) {
+                    cardimg += `<a href="#">
+                            <img src="./img_prod_thumbnail/${obj1.result[i].prod_thumbnail}" alt="">
+                        </a>`
+                };
+                $('.itemcard').html(cardimg);
+
+            }, "json");
+
+
         })
     </script>
 
@@ -1058,7 +1096,7 @@ if (!isset($_SESSION['data_compare'])) {
             });
             // ---------- 表格第一欄 ----------
             $('ul#right_card').sortable({
-                connectWith: "ul#left_card",
+                // connectWith: "ul#left_card",
                 update: function(event, ui) {
                     let _ui = $(ui.item[0]);
                     // console.log(_ui.attr('data-price'));
@@ -1113,7 +1151,7 @@ if (!isset($_SESSION['data_compare'])) {
 
             // ---------- 表格第二欄 ----------
             $('ul#middle_card').sortable({
-                connectWith: "ul#left_card",
+                // connectWith: "ul#left_card",
                 update: function(event, ui) {
                     let _ui = $(ui.item[0]);
                     // console.log(_ui.attr('data-price'));
@@ -1165,7 +1203,7 @@ if (!isset($_SESSION['data_compare'])) {
 
             // ---------- 表格第三欄 ----------
             $('ul#middle2_card').sortable({
-                connectWith: "ul#left_card",
+                // connectWith: "ul#left_card",
                 update: function(event, ui) {
                     let _ui = $(ui.item[0]);
                     // console.log(_ui.attr('data-price'));
