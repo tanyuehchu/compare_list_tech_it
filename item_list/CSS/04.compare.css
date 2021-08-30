@@ -484,7 +484,6 @@ ul.slider_dots .dots {
 
             /* -------- 快速比較區 (web_only) -------- */
             .card_wrap{
-                /* outline: 2px solid rgb(255, 230, 0); */
                 position: fixed;
                 bottom: 20px;
                 left:0;
@@ -578,14 +577,17 @@ ul.slider_dots .dots {
             
 
             .icon_wrap{
-                /* background-color: red; */
-                width: 30%;
+                /* outline: 2px solid rgb(255, 230, 0); */
+
+                width: 35%;
                 margin: auto 3rem 10% 0;
             }
 
             .icon_wrap > a{
+                /* outline: 2px solid rgb(38, 226, 63);       */
+                width: 100%;          
                 display: flex;
-                padding: 5% 10%;
+                padding: 5% 6%;
                 background-color: white;
                 color: #000000;
                 margin: 1rem 0;
@@ -596,8 +598,14 @@ ul.slider_dots .dots {
             }
 
             .icon_wrap a >img{
+                /* outline: 2px solid rgb(226, 42, 42); */
+
                 width: 15%;
                 margin-right: 15%;
+            }
+            .icon_wrap a >span{
+                /* outline: 2px solid rgb(45, 42, 226); */
+                /* width: 100%; */
             }
 
             /* 收合展開 */

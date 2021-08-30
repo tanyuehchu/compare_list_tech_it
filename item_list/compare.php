@@ -582,52 +582,7 @@ if (!isset($_SESSION['data_compare'])) {
             <h3 class="mob">快速查看詳細規格</h3>
             <h3 class="web">詳細規格比較</h3>
         </div>
-        <?php
-        $strobjA = [];
-        $strobjB = [];
-        $strobjC = [];
-        $strobjD = [];
-        $strobjE = [];
-        $scoreA = [];
-        $scoreB = [];
-        $scoreC = [];
-        $scoreD = [];
-        $scoreE = [];
-        if (isset($_GET['prod_id'])) {
-            $sql = "SELECT `order_id`,`products`.`cate_id`,`products`.`prod_id`,`prod_name`,
-            `rate_A_name`,`rate_A_score`,
-            `rate_B_name`,`rate_B_score`,
-            `rate_C_name`,`rate_C_score`,
-            `rate_D_name`,`rate_D_score`,
-            `rate_E_name`,`rate_E_score`
-            FROM `products` 
-            INNER JOIN `orders_rate` 
-            ON `products`.`prod_id`=`orders_rate`.`prod_id`
-            INNER JOIN `rate_item` 
-            ON `products`.`cate_id`=`rate_item`.`cate_id`                                 
-            WHERE `products`.`prod_id` = {$_GET['prod_id']};";
-            $arr = $pdo->query($sql)->fetchAll();
 
-            if (count($arr) > 0) {
-                $strobjA = "{$arr[0]['rate_A_name']}";
-                $strobjB = "{$arr[0]['rate_B_name']}";
-                $strobjC = "{$arr[0]['rate_C_name']}";
-                $strobjD = "{$arr[0]['rate_D_name']}";
-                $strobjE = "{$arr[0]['rate_E_name']}";
-                $scoreA = "{$arr[0]['rate_A_score']}";
-                $scoreB = "{$arr[0]['rate_B_score']}";
-                $scoreC = "{$arr[0]['rate_C_score']}";
-                $scoreD = "{$arr[0]['rate_D_score']}";
-                $scoreE = "{$arr[0]['rate_E_score']}";
-            }
-
-
-
-            // foreach ($arr as $obj) {
-            //     $strobjA[] = "{$obj['order_id']}";
-            // }
-        }
-        ?>
         <!-- ---------- 取得欄位項目 ---------- -->
         <?php if (isset($_GET['cate_id'])) {
             $sql = "SELECT `specific_A` , `specific_B` , `specific_C` , `specific_D` , `specific_E` 
@@ -685,69 +640,53 @@ if (!isset($_SESSION['data_compare'])) {
         }
         ?>
 
+
         <!-------- 快速比較區 (web_only) -------->
         <div class="card_wrap">
-
-            <?php
-            if (isset($_GET['prod_id'])) {
-                $sql = "SELECT `prod_name`, `prod_id`, `prod_price`,`brand_name`,`prod_thumbnail`
-                    FROM `products` 
-                    INNER JOIN `brands` 
-                    ON `products`.`brand_id`=`brands`.`brand_id`                                
-                    WHERE `prod_id` = {$_GET['prod_id']}";
-                $arr = $pdo->query($sql)->fetchAll();
-                foreach ($arr as $obj) {
-            ?>
-                    <li class="compare_card">
-                        <h3 class="display_title">快速查看<small> (僅提供站內資料)</small></h3>
-                        <!-- 上半卡片 -->
-                        <div class="card_title row">
-                            <!-- 商品資訊 -->
-                            <div class="title_wrap">
-                                <h4 class="display_1 brand_name"><?= $obj['brand_name'] ?></h4>
-                                <h4 class="display_1"><?= $obj['prod_name'] ?></h4>
-                                <h6 class="display_1">NT$ <?= $obj['prod_price'] ?></h4>
-
-                            </div>
-                            <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
-                        </div>
-                        <!-------- 下半卡片  -------->
-                        <div class="outerwrap">
-                            <!-- 商品圖 -->
-                            <div class="itemcard">
-                                <a href="#">
-                                    <img src="./img_prod_thumbnail/<?= $obj['prod_thumbnail'] ?>" alt="">
-                                </a>
-                            </div>
-                            <!-------- 雷達圖  -------->
-                            <div class="card_radar">
-                                <div id="chart1"></div>
-                            </div>
-                            <!-------- 右邊icon  -------->
-                            <div class="icon_wrap">
-                                <a href="#" class="compare">
-                                    <img src="./img/icon_saved.svg" alt="">
-                                    <span class="display_title_2">加入喜好清單</span>
-                                </a>
-                                <a href="#" class="shopping-cart">
-                                    <img src="./img/icon_shopping-cart.svg" alt="">
-                                    <span class="display_title_2">加入購物車</span>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-            <?php
-                }
-            }
-            ?>
+            <li class="compare_card">
+                <h3 class="display_title">快速查看<small> (僅提供站內資料)</small></h3>
+                <!-- 上半卡片 -->
+                <div class="card_title row">
+                    <!-- 商品資訊 -->
+                    <div class="title_wrap">
+                        <h4 class="display_1 brand_name">米家</h4>
+                        <h4 class="display_1">掃地機器人</h4>
+                        <h4 class="display_2">NT$ 9999</h4>
+                    </div>
+                    <!-- icon 垃圾桶 -->
+                    <a href="#"><img src="./img/icon_trash.svg" alt=""></a>
+                </div>
+                <!-------- 下半卡片  -------->
+                <div class="outerwrap">
+                    <!-- 商品圖 -->
+                    <div class="itemcard">
+                        <a href="#">
+                            <img src="./img_prod_thumbnail/0301.png" alt="">
+                        </a>
+                    </div>
+                    <!-------- 雷達圖  -------->
+                    <div class="card_radar">
+                        <div id="chart1"></div>
+                    </div>
+                    <!-------- 右邊 button  -------->
+                    <div class="icon_wrap">
+                        <a href="#" class="compare">
+                            <img src="./img/icon_saved.svg" alt="">
+                            <span class="display_title_2">加入喜好清單</span>
+                        </a>
+                        <a href="#" class="shopping-cart">
+                            <img src="./img/icon_shopping-cart.svg" alt="">
+                            <span class="display_title_2">加入購物車</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
             <button class="fixed_left_arrow_area">
                 <i class="fas fa-chevron-right"></i>
             </button>
             <button class="fixed_right_arrow_area">
                 <i class="fas fa-chevron-left"></i>
             </button>
-
-
         </div>
 
     </div>
@@ -1031,30 +970,48 @@ if (!isset($_SESSION['data_compare'])) {
 
     <!-------- Data: Radar Chart -------->
     <script>
-        // $('.img_wrap').on("click", ".img1", function() {
-        //     $.post("product_info_api.php", {
-        //         prod_id: 301
-        //     }, function(obj) {
-        //         console.log(obj.result);
-        //         console.log('result');
+        $('.img_wrap').on("click", "li", function() {
 
-        //         $('#chart1').html('');
+            let img_prodID = $(this);
+            let prodID = img_prodID.attr('data-id');
 
-        //         $('#chart1').radarChart({
-        //             size: [500, 400],
-        //             step: 1,
-        //             title: '',
-        //             values: {
-        //                 '': 1,
-        //                 '': 1,
-        //                 '': 1,
-        //                 '': 5,
-        //                 '': 1,
-        //             },
-        //             showAxisLabels: true
-        //         });
-        //     }, "json");
-        // })
+            // 初始
+            let strA_name;
+            strB_name = [];
+            strC_name = [];
+            strD_name = [];
+            strE_name = [];
+
+            // 取值
+            $.post("prod_Radar_api.php", {
+                prod_id: prodID
+            }, function(obj3) {
+                console.log(obj3.result);
+                strA_name = obj3.result[0].rate_A_name;
+                strB_name = obj3.result[0].rate_B_name;
+                strC_name = obj3.result[0].rate_C_name;
+                strD_name = obj3.result[0].rate_D_name;
+                strE_name = obj3.result[0].rate_E_name;
+                console.log(strB_name);
+
+                // 清空 Radar圖
+                $('#chart1').html('');
+
+                $('#chart1').radarChart({
+                    size: [500, 400],
+                    step: 1,
+                    title: '',
+                    values: {
+                        strA_name: 1,
+                        '$strB_name': 1,
+                        '$strC_name': 1,
+                        '$strD_name': 5,
+                        '$strE_name': 1,
+                    },
+                    showAxisLabels: true
+                });
+            }, "json");
+        })
     </script>
 
     <script>

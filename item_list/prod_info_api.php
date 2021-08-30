@@ -1,8 +1,8 @@
 <?php require_once 'db.inc.php';
 
 
-// 取得 商品名稱 / 品牌名稱 / 商品尺寸 / 商品價格 / 商品型號 / 
-$sql = "SELECT `prod_name`,`brand_name`,`prod_size`,`prod_price`,`prod_type`
+// 取得 商品名稱 / 品牌名稱 / 商品尺寸 / 商品價格 / 商品型號 / 商品縮圖
+$sql = "SELECT `prod_name`,`brand_name`,`prod_size`,`prod_price`,`prod_type`,`prod_thumbnail`
         FROM `products`   
         INNER JOIN `brands`
         ON `brands`.`brand_id`=`products`.`brand_id`
